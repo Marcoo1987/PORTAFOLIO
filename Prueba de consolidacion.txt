@@ -1,0 +1,23 @@
+def hacer_grandioso(magos):
+    return [f'El gran {mago}' for mago in magos]
+
+def imprimir_nombres(nombres):
+    for nombre in nombres:
+        print(nombre)
+
+nombres = ["Harry Houdini", "Newton", "David Blaine", "Hawking", "Messi", "Teller", "Einstein", "Pele", "Juanes"]
+magos = ["Harry Houdini", "David Blaine", "Teller"]
+cientificos = ["Newton", "Hawking", "Einstein"]
+otros = [nombre for nombre in nombres if nombre not in magos and nombre not in cientificos]
+
+print("Lista completa de nombres:")
+imprimir_nombres(nombres)
+
+print("\nMagos grandiosos:")
+imprimir_nombres(hacer_grandioso(magos))
+
+print("\nCientíficos:")
+imprimir_nombres(cientificos)
+
+print("\nOtros:")
+imprimir_nombres(otros)
