@@ -18,7 +18,8 @@
     color: #1CB698;
     margin-right: 8px;
 }
-{
+
+* {
     box-sizing: border-box;
     font-family: 'verdana';
     margin: 0;
@@ -82,7 +83,7 @@
     background-size: cover;
     font-family:fantasy;
     height: 100vh;
-    color: burlywood
+    color: burlywood;
     display: flex;
     align-items: center;
 }
@@ -178,17 +179,17 @@
     color: #1CB698;
     width: 130px;
 }
-.sobremi.fila.col ul li span{
+.sobremi .fila .col ul li span{
     background-color: #1CB698;
     padding: 3px;
     font-weight: bold;
     border-radius: 5px;
 }
-.sobremi.fila.col.contenedor-intereses{
+.sobremi .fila .col .contenedor-intereses{
     display: flex;
     flex-wrap: wrap;
 }
-.sobremi.fila.col.contenedor-intereses.interes{
+.sobremi .fila .col .contenedor-intereses .interes{
     width: 100px;
     height: 100px;
     background-color: #252A2E;
