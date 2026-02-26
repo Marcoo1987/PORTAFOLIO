@@ -1,307 +1,431 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Marco Yañez | Portafolio</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="Styles.css">
 </head>
+
 <body>
     <div class="contenedor-header">
         <header>
             <div class="logo">
-                <a href="#">MARCO</a>
+                <a href="#"><i class="fa-solid fa-code logo-icon"></i><span class="logo-text">MARCO</span></a>
             </div>
             <nav id="nav">
                 <ul>
-                    <li><a href="#inicio" onclick="seleccionar()">INICIO</a></li>
-                    <li><a href="#sobremi" onclick="seleccionar()">SOBRE MI</a></li>
-                    <li><a href="#skills" onclick="seleccionar()">SKILLS</a></li>
-                    <li><a href="#curriculum" onclick="seleccionar()">CURRICULUM</a></li>
-                    <li><a href="#portfolio" onclick="seleccionar()">PORTAFOLIO</a></li>
-                    <li><a href="#contacto" onclick="seleccionar()">CONTACTO</a></li>
+                    <li><a href="#inicio" onclick="seleccionar()">Inicio</a></li>
+                    <li><a href="#sobremi" onclick="seleccionar()">Sobre Mí</a></li>
+                    <li><a href="#skills" onclick="seleccionar()">Skills</a></li>
+                    <li><a href="#curriculum" onclick="seleccionar()">Trayectoria</a></li>
+                    <li><a href="#portfolio" onclick="seleccionar()">Portafolio</a></li>
+                    <li><a href="#contacto" onclick="seleccionar()">Contacto</a></li>
                 </ul>
             </nav>
             <div class="nav-responsive" onclick="mostrarOcultarMenu()">
-           </div>
+                <i class="fa-solid fa-bars"></i>
+            </div>
         </header>
     </div>
 
-    
+    <!-- Banner -->
     <section id="inicio" class="inicio">
         <div class="contenido-banner">
             <div class="contenedor-img">
-                <img src="img/2016-05-25 10.28.19_resized.jpg" alt="">
+                <img src="img/2016-05-25 10.28.19_resized.jpg" alt="Marco Yañez">
             </div>
-            <h1>MARCO YAÑEZ</h1>
-            <h2>Alumni - Full Stack by Python</h2>
-         </div>
+            <h1 class="reveal">MARCO YAÑEZ</h1>
+            <!-- Auto-sliding text: role, vision, mission -->
+            <div class="hero-slider reveal">
+                <div class="hero-slides">
+                    <div class="hero-slide">
+                        <span class="role">Full Stack Developer</span>
+                        <span class="sub">Desarrollo de Páginas web, Landings & Aplicaciones Web, Software, Consultoria
+                            TECH</span>
+                    </div>
+                    <div class="hero-slide">
+                        <span class="role">Mi Visión</span>
+                        <span class="sub">Crear experiencias digitales que conecten personas con soluciones
+                            reales</span>
+                    </div>
+                    <div class="hero-slide">
+                        <span class="role">Mi Misión</span>
+                        <span class="sub">Dominar el stack completo y construir productos que impacten
+                            positivamente</span>
+                    </div>
+                </div>
+            </div>
+            <div class="social-links reveal">
+                <a href="https://www.facebook.com/" target="_blank" class="social-circle-link" title="Facebook">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/" target="_blank" class="social-circle-link" title="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://www.linkedin.com/" target="_blank" class="social-circle-link" title="LinkedIn">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.youtube.com/@marcozionenator" target="_blank" class="social-circle-link"
+                    title="YouTube">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+                <a href="https://wa.me/56984117478" target="_blank" class="social-circle-link" title="WhatsApp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
     </section>
 
-    
+    <!-- Sobre Mi -->
     <section id="sobremi" class="sobremi">
         <div class="contenido-seccion">
-            <h2>SOBRE MI</h2>
-            <p>Hola, soy Marco Yañez. Mi experiencia en el área es reciente en el mundo TI, pero me esfuerzo dia a dia por absorver conocimiento y aprender de desarrolladores con mayor experiencia en este mundo tan diverso del desarrollo web, Full Stack y las tecnologias de la Información en general.</p>
+            <h2 class="reveal">SOBRE MÍ</h2>
 
-            <div class="fila">
-                <div class="col">
-                    <h3>DATOS PERSONALES</h3>
-                    <ul>
-                        <li>
-                            <strong>Teléfono</strong>
-                            +56-984117478
-                        </li>
-                        <li>
-                            <strong>Email</strong>
-                            marcozionenator@gmail.com
-                        </li>
-                        <li>
-                            <strong>Website</strong>
-                            www.MetastastasisMental.blosgpot.com
-                        </li>
-                        <li>
-                            <strong>Dirección</strong>
-                            El Espinal/Rio Hurtado, Chile
-                        </li>
-                        <li>
-                            <strong>Cargo</strong>
-                           VIAJERO TEMPORAL FREELANCE
-                           ALUMNO FULL STACK PYTHON
-                        </li>
-                    </ul>
-                </div>
+            <!-- Bio full width typewriter -->
+            <div class="sobre-bio glass reveal">
+                <p class="typewriter-text" id="bioText"></p>
+                <span class="typewriter-cursor" id="bioCursor">|</span>
+            </div>
 
-                
-                <div class="col">
-                    <h3>INTERESES</h3>
-                    <div class="contenedor-intereses">
-                        <div class="interes">
-                        <span style="background: red">JUEGOS</span>
-                        </div>
-                        <div class="interes">
-                        <span style="background: yellow; color: #131517;">MUSICA</span>
-                        </div>
-                        <div class="interes">
-                        <span style="background: purple;">VIAJAR</span>
-                        </div>
-                        <div class="interes">
-                        <span style="background: peru;">DEPORTE</span>
-                        </div>
-                        <div class="interes">
-                        <span style="background: green;">LIBROS</span>
-                        </div>
-                        <div class="interes">
-                        <span style="background: #1CB698;">FRONT-END </span>
-                        </div>
-                        <div class="interes">
-                        <span style="background: brown;">BACK-END</span>
-                        </div>
-                        <div class="interes">
-                        <span style="background: blue;">PHYTON</span>
-                        </div>
-                        
+            <!-- Bottom row: intereses full width -->
+            <div class="sobre-intereses reveal">
+                <h3>INTERESES &amp; HOBBIES</h3>
+                <div class="intereses-grid">
+                    <div class="interes-card glass"><i class="fa-solid fa-gamepad"></i><span>Juegos</span></div>
+                    <div class="interes-card glass"><i class="fa-solid fa-music"></i><span>Música</span></div>
+                    <div class="interes-card glass"><i class="fa-solid fa-plane"></i><span>Viajar</span></div>
+                    <div class="interes-card glass"><i class="fa-solid fa-bicycle"></i><span>Deporte</span></div>
+                    <div class="interes-card glass"><i class="fa-solid fa-book"></i><span>Libros</span></div>
+                    <div class="interes-card glass"><i class="fa-brands fa-python"></i><span>Python</span></div>
+                    <div class="interes-card glass"><i class="fa-solid fa-robot"></i><span>IA</span></div>
+                    <div class="interes-card glass"><i class="fa-solid fa-camera"></i><span>Fotografía</span></div>
+                    <div class="interes-card glass"><i class="fa-solid fa-film"></i><span>Cine</span></div>
+                    <div class="interes-card glass"><i class="fa-solid fa-brain"></i><span>Machine Learning</span></div>
+                    <div class="interes-card glass"><i class="fa-solid fa-network-wired"></i><span>Deep Learning</span>
                     </div>
+                    <div class="interes-card glass"><i class="fa-solid fa-gears"></i><span>Automatización</span></div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Skills -->
     <section class="skills" id="skills">
         <div class="contenido-seccion">
-            <h2>SKILLS</h2>
-            <div class="fila">
-                <div class="col">
-                    <h3>Habilidades Tecnicas</h3>
-                    <div class="skill">
-                        <span>HTML & CSS</span>
+            <h2 class="reveal">MIS SKILLS</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;" class="reveal">
+
+                <!-- Card 1: Técnicas -->
+                <div class="glass" style="padding: 1.8rem;">
+                    <p
+                        style="color: var(--primary-color); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1.2rem; border-bottom: 1px solid var(--glass-border); padding-bottom: 0.75rem;">
+                        <i class="fa-solid fa-code"></i> &nbsp;Técnicas
+                    </p>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>HTML &amp; CSS</span><span class="pct">86%</span></div>
                         <div class="barra-skill">
-                            <div class="progreso">
-                                <span>50%</span>
-                            </div>
+                            <div class="progreso" style="width:86%"></div>
                         </div>
                     </div>
-                    <div class="skill">
-                        <span>Bootstrap</span>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Bootstrap</span><span class="pct">85%</span></div>
                         <div class="barra-skill">
-                            <div class="progreso">
-                                <span>40%</span>
-                            </div>
+                            <div class="progreso" style="width:85%"></div>
                         </div>
                     </div>
-                    <div class="skill">
-                        <span>Java Script</span>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>JavaScript</span><span class="pct">70%</span></div>
                         <div class="barra-skill">
-                            <div class="progreso">
-                                <span>20%</span>
-                            </div>
+                            <div class="progreso" style="width:70%"></div>
                         </div>
                     </div>
-                    <div class="skill">
-                        <span>Front-end</span>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Python</span><span class="pct">75%</span></div>
                         <div class="barra-skill">
-                            <div class="progreso">
-                                <span>45%</span>
-                            </div>
+                            <div class="progreso" style="width:75%"></div>
                         </div>
                     </div>
-                    <div class="skill">
-                        <span>Back-end</span>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Node JS</span><span class="pct">45%</span></div>
                         <div class="barra-skill">
-                            <div class="progreso">
-                                <span>0%</span>
-                            </div>
+                            <div class="progreso" style="width:45%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>PostgreSQL</span><span class="pct">75%</span></div>
+                        <div class="barra-skill">
+                            <div class="progreso" style="width:75%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Git &amp; GitHub</span><span class="pct">85%</span></div>
+                        <div class="barra-skill">
+                            <div class="progreso" style="width:85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Manejo de IA</span><span class="pct">80%</span></div>
+                        <div class="barra-skill">
+                            <div class="progreso" style="width:80%"></div>
+                        </div>
+                    </div>
+                    <div class="skills-tags"
+                        style="margin-top:1.2rem; padding-top:1rem; border-top:1px solid var(--glass-border);">
+                        <span class="skill-tag"><i class="fa-solid fa-code"></i> VS Code</span>
+                        <span class="skill-tag"><i class="fa-solid fa-robot"></i> ChatGPT</span>
+                        <span class="skill-tag"><i class="fa-brands fa-figma"></i> Figma</span>
+                        <span class="skill-tag"><i class="fa-solid fa-database"></i> Supabase</span>
+                    </div>
+                </div>
+
+                <!-- Card 2: Soft Skills -->
+                <div class="glass" style="padding: 1.8rem;">
+                    <p
+                        style="color: var(--primary-color); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1.2rem; border-bottom: 1px solid var(--glass-border); padding-bottom: 0.75rem;">
+                        <i class="fa-solid fa-brain"></i> &nbsp;Soft Skills
+                    </p>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Aprendizaje Rápido</span><span class="pct">95%</span></div>
+                        <div class="barra-skill">
+                            <div class="progreso" style="width:95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Resiliencia</span><span class="pct">90%</span></div>
+                        <div class="barra-skill">
+                            <div class="progreso" style="width:90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Trabajo en Equipo</span><span class="pct">90%</span></div>
+                        <div class="barra-skill">
+                            <div class="progreso" style="width:90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Resolución de Problemas</span><span class="pct">88%</span></div>
+                        <div class="barra-skill">
+                            <div class="progreso" style="width:88%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Proactividad</span><span class="pct">85%</span></div>
+                        <div class="barra-skill">
+                            <div class="progreso" style="width:85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Liderazgo</span><span class="pct">80%</span></div>
+                        <div class="barra-skill">
+                            <div class="progreso" style="width:80%"></div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="col">
-                    <h3>Habilidades profesionales</h3>
-                    <div class="skill">
-                        <span>Comunicación</span>
-                        <div class="barra-skill">
-                            <div class="progreso">
-                                <span>60%</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill">
-                        <span>Trabajo en Equipo</span>
-                        <div class="barra-skill">
-                            <div class="progreso">
-                                <span>65%</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill">
-                        <span>Creatividad</span>
-                        <div class="barra-skill">
-                            <div class="progreso">
-                                <span>70%</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill">
-                        <span>Dedicación</span>
-                        <div class="barra-skill">
-                            <div class="progreso">
-                                <span>65%</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill">
-                        <span>Empatia</span>
-                        <div class="barra-skill">
-                            <div class="progreso">
-                                <span>30%</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
     </section>
 
-    
+    <!-- Trayectoria / Curriculum -->
     <section id="curriculum" class="curriculum">
         <div class="contenido-seccion">
-            <h2>CURRICULUM</h2>
-            <div class="fila">
-                <div class="col izquierda">
-                    <h3>Educación</h3>
-                    <div class="item izq">
-                        <h4>Educación media completa</h4>
-                        <span class="casa">Liceo Francisco de Aguirre</span>
-                        <span class="fecha">2001 - 2005</span>
-                        <p>Cientifico Humanista</p>
-                        <div class="conectori">
-                            <div class="circuloi"></div>
-                        </div>
+            <h2 class="reveal">TRAYECTORIA</h2>
+            <div class="timeline reveal">
+                <div class="timeline-item glass">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2026 &mdash; Presente</span>
+                        <h3>Desarrollador Web Freelance</h3>
+                        <p>Diseño y desarrollo de aplicaciones web full stack para clientes. Especialización en UI/UX
+                            moderna, bases de datos y despliegue en la nube.</p>
                     </div>
                 </div>
-
-                <div class="col derecha">
-                    <h3>Experiencia de trabajo</h3>
-                    <div class="item der">
-                        <h4>Front Developer</h4>
-                        <span class="casa">Nombre de Compañía</span>
-                        <span class="fecha">2005 - 2008</span>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis, cumque repellat, tempora recusandae aliquam nemo esse natus impedit, nostrum temporibus veritatis eaque soluta aperiam id repudiandae fugiat deserunt! Explicabo, veritatis?</p>
-                        <div class="conectord">
-                            <div class="circulod"></div>
-                        </div>
+                <div class="timeline-item glass">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2022 a 2025</span>
+                        <h3>Formación Full Stack &mdash; Autodidacta</h3>
+                        <p>Estudio intensivo de HTML, CSS, JavaScript, Bootstrap, Python, IA y bases de datos
+                            relacionales.
+                            Primeros proyectos personales publicados.</p>
+                    </div>
+                </div>
+                <div class="timeline-item glass">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Anterior</span>
+                        <h3>Experiencia Profesional Diversa</h3>
+                        <p>Trayectoria en distintas industrias que forjó habilidades de liderazgo, trabajo en equipo y
+                            resolución de problemas bajo presión.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    
+    <!-- Portfolio -->
     <section id="portfolio" class="portfolio">
         <div class="contenido-seccion">
-            <h2 style="text-align: center;">PORTAFOLIO</h2>
-            <div class="galeria">
-                <div class="proyecto">
-                    <img style="width: auto;" src="img/Blog.png" alt="">
-                    <h3>MetastasisMental.Blogspot.com</h3>
-                        <p>Fotografía</p>
+            <h2 class="reveal">PORTAFOLIO</h2>
+            <div class="galeria reveal">
+
+                <!-- Proyecto 1: Lumbrera Coop (tiene screenshot real) -->
+                <div class="proyecto glass">
+                    <img src="img/lumbrera_screenshot.png" alt="Cooperativa Lumbrera">
+                    <div class="proyecto-overlay">
+                        <h3>Cooperativa Lumbrera</h3>
+                        <p>E-commerce + Landing para pisquera artesanal chilena con carrito de compras, autenticación y
+                            panel de socios.</p>
+                        <div class="proyecto-tags">
+                            <span>HTML</span><span>CSS</span><span>JS</span><span>Supabase</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="proyecto">
-                    <img style="width: 110%;" src="img/foto 2.png" alt="">
-                        <h3>Inicios en HTML y CSS</h3>
-                        <p>Fotografía</p>
+
+                <!-- Proyecto 2: App Clínica -->
+                <div class="proyecto glass proyecto-dark">
+                    <div class="proyecto-placeholder">
+                        <i class="fa-solid fa-hospital-user"></i>
+                        <span>App Clínica</span>
+                    </div>
+                    <div class="proyecto-overlay">
+                        <h3>App Clínica</h3>
+                        <p>Sistema de gestión clínica con módulos de pacientes, agendamiento, pagos, estadísticas y
+                            administración multi-rol.</p>
+                        <div class="proyecto-tags">
+                            <span>Django</span><span>Python</span><span>PostgreSQL</span><span>Bootstrap</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="proyecto">
-                    <img style="width: 92%; margin-left: 8%;" src="img/foto 3.png" alt="">
-                        <h3 style="margin-left: 8%;" >Avanzando con Bootstrap</h3>
-                        <p style="margin-left: 8%;" >Fotografía</p>
+
+                <!-- Proyecto 3: ERP Talento 360 -->
+                <div class="proyecto glass proyecto-dark">
+                    <div class="proyecto-placeholder">
+                        <i class="fa-solid fa-chart-pie"></i>
+                        <span>ERP Talento 360</span>
+                    </div>
+                    <div class="proyecto-overlay">
+                        <h3>ERP Talento 360</h3>
+                        <p>Sistema ERP de gestión de talento humano con módulo predictivo de IA para análisis de
+                            desempeño y rotación.</p>
+                        <div class="proyecto-tags">
+                            <span>React</span><span>Vite</span><span>Python</span><span>IA</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="proyecto">
-                    <img style="width: 92%; margin-left: 8%;" src="img/foto 4.png" alt="">
-                    <h3 style="margin-left: 8%;">Formulario Bootstrap</h3>
-                        <p style="margin-left: 8%;">Fotografía</p>
+
+                <!-- Proyecto 4: ERP Vendimia -->
+                <div class="proyecto glass proyecto-dark">
+                    <div class="proyecto-placeholder">
+                        <i class="fa-solid fa-wine-glass"></i>
+                        <span>ERP Vendimia 2025</span>
+                    </div>
+                    <div class="proyecto-overlay">
+                        <h3>ERP Vendimia 2025</h3>
+                        <p>Sistema de gestión para temporada de vendimia: control de ingresos de uva, producción,
+                            personal y reportes.</p>
+                        <div class="proyecto-tags">
+                            <span>Django</span><span>Python</span><span>PostgreSQL</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="proyecto">
-                    <img style="width: 92%; margin-left: 8%; height: 70vh;" src="img/foto 5.png" alt="">
-                    <h3 style="margin-left: 8%;" >Botones con estilos</h3>
-                        <p style=" margin-left: 8%;">Fotografía</p>
+
+                <!-- Proyecto 5: Agente YouTube IA -->
+                <div class="proyecto glass">
+                    <img src="img/agente_yt_screenshot.png" alt="Agente YouTube IA">
+                    <div class="proyecto-overlay">
+                        <h3>Agente YouTube IA</h3>
+                        <p>Agente de inteligencia artificial para generación automatizada de videos con narración,
+                            imágenes y efectos.</p>
+                        <div class="proyecto-tags">
+                            <span>Python</span><span>IA</span><span>TTS</span><span>FFmpeg</span>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Proyecto 6: Blog Metastasis Mental -->
+                <div class="proyecto glass">
+                    <img src="img/Blog.png" alt="Blog Metastasis Mental">
+                    <div class="proyecto-overlay">
+                        <h3>Metastasis Mental</h3>
+                        <p>Blog personal de fotografía, pensamiento y escritura. Primer proyecto web publicado.</p>
+                        <div class="proyecto-tags">
+                            <span>HTML</span><span>CSS</span><span>JS</span>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    
+
+    <!-- Contacto -->
     <section id="contacto" class="contacto">
         <div class="contenido-seccion">
-            <h2>CONTACTO</h2>
-            <div class="fila">
-                <div class="col">
-                    <input type="text" placeholder="Tú Nombre">
+            <h2 class="reveal">CONTÁCTAME</h2>
+            <div class="fila reveal">
+                <div class="col glass form-group">
+                    <input type="text" placeholder="Tu Nombre">
                     <input type="text" placeholder="Número telefónico">
-                    <input type="text" placeholder="Dirección de correo">
+                    <input type="email" placeholder="Correo electrónico">
                     <input type="text" placeholder="Tema">
-                    <textarea name="" id="" cols="20" rows="8" placeholder="Mensaje"></textarea>
-                    <button type="button" class="btn btn-dark">Enviar Mensaje</button>
+                    <textarea cols="30" rows="6" placeholder="¿Cómo puedo ayudarte?"></textarea>
+                    <button class="btn-enviar">ENVIAR MENSAJE</button>
                 </div>
-                
-                <div class="col">
-                    <ul class="contacto-lista">
-                        <li><strong>Dirección:</strong> El Espinal s/n Rio Hurtado</li>
-                        <li><strong>Llámame:</strong> 984117478</li>
-                        <li><strong>Email:</strong> marcozionenator@gmail.com</li>
-                    </ul>
+
+                <div class="col contacto-info reveal">
+                    <div class="stat-pill glass">
+                        <i class="fa-solid fa-bolt"></i>
+                        <div>
+                            <span class="stat-label">Disponibilidad</span>
+                            <span class="stat-value">Inmediata</span>
+                        </div>
+                    </div>
+                    <div class="stat-pill glass">
+                        <i class="fa-solid fa-briefcase"></i>
+                        <div>
+                            <span class="stat-label">Modalidad</span>
+                            <span class="stat-value">Consultoría Freelance</span>
+                        </div>
+                    </div>
+                    <div class="stat-pill glass">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div>
+                            <span class="stat-label">Ubicación</span>
+                            <span class="stat-value">Chile</span>
+                        </div>
+                    </div>
+                    <div class="stat-pill glass">
+                        <i class="fa-solid fa-envelope"></i>
+                        <div>
+                            <span class="stat-label">Email</span>
+                            <span class="stat-value">marcozionenator@gmail.com</span>
+                        </div>
+                    </div>
+                    <div class="stat-pill glass">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <div>
+                            <span class="stat-label">WhatsApp</span>
+                            <a href="https://wa.me/56984117478" target="_blank" class="stat-value"
+                                style="color:var(--primary-color);text-decoration:none;"><i
+                                    class="fa-brands fa-whatsapp"></i> Contactar por WhatsApp</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    
-    <footer>
-        <span style="display: block; text-align: center; color: #8dec21f6; padding: 20px;">Portafolio by Marco 2024.</span>
-    </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <footer>
+        <p>&copy; 2024 Portafolio Personal - Marco Yañez</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
+
 </html>
