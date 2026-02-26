@@ -1,0 +1,21 @@
+# Ignorar archivos y carpetas innecesarios
+*.rar
+*.zip
+*.7z
+*.tar.gz
+*.tar
+*.gz
+*.bz2
+*.xz
+*.bak
+*.tmp
+*.swp
+.DS_Store
+Thumbs.db
+node_modules/
+.env
+__pycache__/
+*.pyc
+*.pyo
+*.log
+Styles.css.crswap
