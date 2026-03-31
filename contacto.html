@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Marco Yañez | Contacto</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"/>
+</head>
+<body style="padding-top: 80px;">
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- ═══════════════════════════ NAVBAR ═══════════════════════════ -->
+  <nav id="navbar" class="scrolled">
+    <div class="nav-logo">
+      <span class="grad-text">Dev</span>Marco
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/"         class="nav-link">Inicio</a></li>
+      <li><a href="/sobre-mi.html"  class="nav-link">Sobre Mí</a></li>
+      <li><a href="/portafolio.html" class="nav-link">Portafolio</a></li>
+      <li><a href="/precios.html"    class="nav-link">Precios</a></li>
+      <li><a href="/contacto.html"   class="nav-link active">Contacto</a></li>
+    </ul>
+    <div class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </nav>
+
+  <!-- ═══════════════════════════ CONTACTO ═══════════════════════════ -->
+  <section id="contacto">
+    <div class="section">
+      <h2 class="section-title">CONTACTO</h2>
+      <div class="contact-grid">
+        <div class="contact-form glass">
+          <h3 style="font-size:1.2rem;font-weight:700;margin-bottom:0.5rem">Envíame un mensaje</h3>
+          <p style="font-size:0.83rem;color:var(--clr-muted);margin-bottom:1.5rem">Respondo en menos de 24 horas hábiles.</p>
+          <input type="text"  id="nameInput"  placeholder="Tu nombre" autocomplete="name"/>
+          <input type="email" id="emailInput" placeholder="tu@email.com" autocomplete="email"/>
+          <textarea id="msgInput" placeholder="¿En qué puedo ayudarte?" rows="5"></textarea>
+          <button class="btn-send" onclick="sendEmail()">
+            <i class="fa-solid fa-paper-plane"></i> &nbsp;Enviar mensaje
+          </button>
+        </div>
+
+        <div class="contact-info">
+          <div class="info-pill glass">
+            <i class="fa-solid fa-envelope"></i>
+            <div>
+              <div class="info-pill-label">Email</div>
+              <div class="info-pill-value">marcoyanezneira@gmail.com</div>
+            </div>
+          </div>
+          <div class="info-pill glass">
+            <i class="fa-brands fa-whatsapp"></i>
+            <div>
+              <div class="info-pill-label">WhatsApp</div>
+              <div class="info-pill-value">+56 9 8411 7478</div>
+            </div>
+          </div>
+          <div class="info-pill glass">
+            <i class="fa-solid fa-location-dot"></i>
+            <div>
+              <div class="info-pill-label">Ubicación</div>
+              <div class="info-pill-value">Chile — Remoto / Presencial IV Región</div>
+            </div>
+          </div>
+          <div class="info-pill glass">
+            <i class="fa-brands fa-github"></i>
+            <div>
+              <div class="info-pill-label">GitHub</div>
+              <div class="info-pill-value">github.com/Marcoo1987</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
+  <footer>
+    <div class="nav-logo" style="font-size:1.4rem;margin-bottom:0.5rem"><span class="grad-text">Dev</span>Marco</div>
+    <p style="margin-bottom:1rem">Desarrollado con <span style="color:#e11d48">❤︎</span> y mucho ☕ en Chile</p>
+    <p>© 2025 Marco Yañez — Todos los derechos reservados</p>
+  </footer>
+
+  <script type="module" src="/src/main.js"></script>
+  <script>
+    function sendEmail() {
+      const name  = document.getElementById('nameInput').value.trim();
+      const email = document.getElementById('emailInput').value.trim();
+      const msg   = document.getElementById('msgInput').value.trim();
+      if (!name || !email || !msg) { alert('Por favor completa todos los campos.'); return; }
+      const body = encodeURIComponent(`Nombre: ${name}\nEmail: ${email}\n\n${msg}`);
+      window.open(`mailto:marcoyanezneira@gmail.com?subject=Contacto desde portafolio&body=${body}`, '_blank');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Marco Yañez | Precios</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"/>
+</head>
+<body style="padding-top: 80px;">
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- ═══════════════════════════ NAVBAR ═══════════════════════════ -->
+  <nav id="navbar" class="scrolled">
+    <div class="nav-logo">
+      <span class="grad-text">Dev</span>Marco
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/"         class="nav-link">Inicio</a></li>
+      <li><a href="/sobre-mi.html"  class="nav-link">Sobre Mí</a></li>
+      <li><a href="/portafolio.html" class="nav-link">Portafolio</a></li>
+      <li><a href="/precios.html"    class="nav-link active">Precios</a></li>
+      <li><a href="/contacto.html"   class="nav-link">Contacto</a></li>
+    </ul>
+    <div class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </nav>
+
+  <!-- ═══════════════════════════ PRECIOS ═══════════════════════════ -->
+  <section id="precios" style="background: radial-gradient(ellipse at 50% 50%, rgba(28,182,152,0.05) 0%, transparent 70%);">
+    <div class="section">
+      <h2 class="section-title">PLANES & PRECIOS</h2>
+      <p style="text-align:center;color:var(--clr-muted);margin-top:-3rem;margin-bottom:3rem;font-size:0.95rem">
+        Soluciones a medida según el nivel técnico y las necesidades de tu negocio.
+      </p>
+      <div class="pricing-grid" id="pricingGrid">
+        <!-- Rendered by renderPricing.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
+  <footer>
+    <div class="nav-logo" style="font-size:1.4rem;margin-bottom:0.5rem"><span class="grad-text">Dev</span>Marco</div>
+    <p style="margin-bottom:1rem">Desarrollado con <span style="color:#e11d48">❤︎</span> y mucho ☕ en Chile</p>
+    <p>© 2025 Marco Yañez — Todos los derechos reservados</p>
+  </footer>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

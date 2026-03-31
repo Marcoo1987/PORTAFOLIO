@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Marco Yañez | Sobre Mí</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"/>
+</head>
+<body style="padding-top: 80px;">
+
+  <!-- Custom Cursor -->
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- ═══════════════════════════ NAVBAR ═══════════════════════════ -->
+  <nav id="navbar" class="scrolled">
+    <div class="nav-logo">
+      <span class="grad-text">Dev</span>Marco
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/"         class="nav-link">Inicio</a></li>
+      <li><a href="/sobre-mi.html"  class="nav-link active">Sobre Mí</a></li>
+      <li><a href="/portafolio.html" class="nav-link">Portafolio</a></li>
+      <li><a href="/precios.html"    class="nav-link">Precios</a></li>
+      <li><a href="/contacto.html"   class="nav-link">Contacto</a></li>
+    </ul>
+    <div class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </nav>
+
+  <!-- ═══════════════════════════ SOBRE MÍ ═══════════════════════════ -->
+  <section id="sobremi">
+    <div class="section">
+      <h2 class="section-title">SOBRE MÍ</h2>
+      <div class="bio-card glass">
+        <p id="bioText"></p><span id="bioCursor" style="color:var(--clr-primary);font-weight:700">|</span>
+      </div>
+      <div class="interests-grid">
+        <div class="interest-chip reveal-up"><i class="fa-solid fa-code"></i>Desarrollo Web</div>
+        <div class="interest-chip reveal-up"><i class="fa-solid fa-brain"></i>IA & ML</div>
+        <div class="interest-chip reveal-up"><i class="fa-solid fa-database"></i>Bases de Datos</div>
+        <div class="interest-chip reveal-up"><i class="fa-solid fa-server"></i>DevOps</div>
+        <div class="interest-chip reveal-up"><i class="fa-solid fa-palette"></i>UI/UX Design</div>
+        <div class="interest-chip reveal-up"><i class="fa-solid fa-camera"></i>Fotografía</div>
+        <div class="interest-chip reveal-up"><i class="fa-solid fa-chess"></i>Ajedrez</div>
+        <div class="interest-chip reveal-up"><i class="fa-solid fa-book"></i>Filosofía</div>
+        <div class="interest-chip reveal-up"><i class="fa-solid fa-dumbbell"></i>Fitness</div>
+        <div class="interest-chip reveal-up"><i class="fa-solid fa-music"></i>Música</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ SKILLS ═══════════════════════════ -->
+  <section id="skills">
+    <div class="section">
+      <h2 class="section-title">HABILIDADES</h2>
+      <div class="skills-grid">
+        <!-- Frontend -->
+        <div class="skill-card glass reveal-up">
+          <div class="skill-card-title"><i class="fa-solid fa-display"></i> &nbsp;Frontend</div>
+          <div class="skill-item">
+            <div class="skill-label"><span>HTML5 / CSS3</span><span>95%</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-label"><span>JavaScript ES6+</span><span>88%</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-label"><span>React / Vite</span><span>72%</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:72%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-label"><span>Tailwind CSS</span><span>85%</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+          </div>
+          <div class="skill-tools">
+            <span class="tool-badge">Figma</span>
+            <span class="tool-badge">GSAP</span>
+            <span class="tool-badge">Three.js</span>
+            <span class="tool-badge">Lenis</span>
+          </div>
+        </div>
+
+        <!-- Backend -->
+        <div class="skill-card glass reveal-up">
+          <div class="skill-card-title"><i class="fa-solid fa-server"></i> &nbsp;Backend</div>
+          <div class="skill-item">
+            <div class="skill-label"><span>Python</span><span>90%</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-label"><span>Django / DRF</span><span>85%</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-label"><span>Node.js / Express</span><span>65%</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:65%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-label"><span>PostgreSQL</span><span>80%</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+          </div>
+          <div class="skill-tools">
+            <span class="tool-badge">Docker</span>
+            <span class="tool-badge">Supabase</span>
+          </div>
+        </div>
+
+        <!-- IA -->
+        <div class="skill-card glass reveal-up">
+          <div class="skill-card-title"><i class="fa-solid fa-brain"></i> &nbsp;IA & Agentes</div>
+          <div class="skill-item">
+            <div class="skill-label"><span>LangChain / Agentes LLM</span><span>78%</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-label"><span>OpenAI API / Gemini</span><span>85%</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-label"><span>Automatización (n8n)</span><span>70%</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div>
+          </div>
+          <div class="skill-tools">
+            <span class="tool-badge">Pandas</span>
+            <span class="tool-badge">Python</span>
+          </div>
+        </div>
+
+        <!-- DevOps -->
+        <div class="skill-card glass reveal-up">
+          <div class="skill-card-title"><i class="fa-solid fa-cloud"></i> &nbsp;DevOps & Cloud</div>
+          <div class="skill-item">
+            <div class="skill-label"><span>Linux / VPS Admin</span><span>82%</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-label"><span>Docker & Compose</span><span>75%</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-label"><span>Git & GitHub</span><span>88%</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+          </div>
+          <div class="skill-tools">
+            <span class="tool-badge">Hetzner VPS</span>
+            <span class="tool-badge">CI/CD</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ TRAYECTORIA ═══════════════════════════ -->
+  <section id="curriculum">
+    <div class="section">
+      <h2 class="section-title">TRAYECTORIA</h2>
+      <div class="timeline">
+        <div class="timeline-item glass">
+          <div class="timeline-dot"></div>
+          <span class="timeline-date">2026 — Presente</span>
+          <h3>Desarrollador Web Freelance</h3>
+          <p>Diseño y desarrollo de aplicaciones web full stack para clientes. Especialización en UI/UX moderna, bases de datos y despliegue en la nube.</p>
+        </div>
+        <div class="timeline-item glass">
+          <div class="timeline-dot"></div>
+          <span class="timeline-date">2022 a 2025</span>
+          <h3>Formación Full Stack — Autodidacta</h3>
+          <p>Estudio intensivo de HTML, CSS, JavaScript, Bootstrap, Python, IA y bases de datos relacionales. Primeros proyectos personales publicados.</p>
+        </div>
+        <div class="timeline-item glass">
+          <div class="timeline-dot"></div>
+          <span class="timeline-date">Anterior</span>
+          <h3>Experiencia Profesional Diversa</h3>
+          <p>Trayectoria en distintas industrias que forjó habilidades de liderazgo, trabajo en equipo y resolución de problemas bajo presión.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
+  <footer>
+    <div class="nav-logo" style="font-size:1.4rem;margin-bottom:0.5rem"><span class="grad-text">Dev</span>Marco</div>
+    <p style="margin-bottom:1rem">Desarrollado con <span style="color:#e11d48">❤︎</span> y mucho ☕ en Chile</p>
+    <p>© 2025 Marco Yañez — Todos los derechos reservados</p>
+  </footer>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

@@ -1,431 +1,122 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marco Yañez | Portafolio</title>
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <link rel="stylesheet" href="Styles.css">
-</head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Marco Yañez — Desarrollador Full Stack & Agentes de IA basado en Chile. Portafolio profesional."/>
+  <meta name="keywords" content="Desarrollador Full Stack, Python, Django, React, IA, Agentes, Chile"/>
+  <meta property="og:title" content="Marco Yañez — Portafolio"/>
+  <meta property="og:description" content="Desarrollador Full Stack & Especialista en IA basado en Chile."/>
+  <title>Marco Yañez | Full Stack Developer & AI Engineer</title>
 
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"/>
+</head>
 <body>
-    <div class="contenedor-header">
-        <header>
-            <div class="logo">
-                <a href="#"><i class="fa-solid fa-code logo-icon"></i><span class="logo-text">MARCO</span></a>
-            </div>
-            <nav id="nav">
-                <ul>
-                    <li><a href="#inicio" onclick="seleccionar()">Inicio</a></li>
-                    <li><a href="#sobremi" onclick="seleccionar()">Sobre Mí</a></li>
-                    <li><a href="#skills" onclick="seleccionar()">Skills</a></li>
-                    <li><a href="#curriculum" onclick="seleccionar()">Trayectoria</a></li>
-                    <li><a href="#portfolio" onclick="seleccionar()">Portafolio</a></li>
-                    <li><a href="#contacto" onclick="seleccionar()">Contacto</a></li>
-                </ul>
-            </nav>
-            <div class="nav-responsive" onclick="mostrarOcultarMenu()">
-                <i class="fa-solid fa-bars"></i>
-            </div>
-        </header>
+
+  <!-- Custom Cursor -->
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- ═══════════════════════════ NAVBAR ═══════════════════════════ -->
+  <nav id="navbar">
+    <div class="nav-logo">
+      <span class="grad-text">Dev</span>Marco
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/"         class="nav-link active">Inicio</a></li>
+      <li><a href="/sobre-mi.html"  class="nav-link">Sobre Mí</a></li>
+      <li><a href="/portafolio.html" class="nav-link">Portafolio</a></li>
+      <li><a href="/precios.html"    class="nav-link">Precios</a></li>
+      <li><a href="/contacto.html"   class="nav-link">Contacto</a></li>
+    </ul>
+    <div class="nav-hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════ HERO ═══════════════════════════ -->
+  <section id="inicio">
+    <canvas id="three-canvas"></canvas>
+    <div class="hero-content">
+      <div class="hero-avatar">
+        <img src="/img/2016-05-25 10.28.19_resized.jpg" alt="Marco Yañez" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fa-solid fa-user\' style=\'font-size:4rem;color:var(--clr-primary)\'></i>'">
+      </div>
+
+      <div class="hero-role">Full Stack Developer & AI Engineer</div>
+
+      <h1 class="hero-title">
+        <span class="glitch grad-text" data-text="Marco Yañez">Marco Yañez</span>
+      </h1>
+
+      <p class="hero-sub">
+        Construyendo experiencias digitales de alto impacto con código limpio, IA aplicada y diseño que enamora.
+      </p>
+
+      <a href="/portafolio.html" class="hero-cta">
+        <i class="fa-solid fa-rocket"></i>
+        Ver mis proyectos
+      </a>
+
+      <div class="social-links">
+        <a href="https://github.com/Marcoo1987" target="_blank" rel="noopener" class="social-link" title="GitHub">
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/marco-yan%CC%83ez-neira-77b4802b2" target="_blank" rel="noopener" class="social-link" title="LinkedIn">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+        <a href="mailto:marcoyanezneira@gmail.com" class="social-link" title="E-mail">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+        <a href="https://wa.me/56984117478" target="_blank" rel="noopener" class="social-link" title="WhatsApp">
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
+      </div>
     </div>
 
-    <!-- Banner -->
-    <section id="inicio" class="inicio">
-        <div class="contenido-banner">
-            <div class="contenedor-img">
-                <img src="img/2016-05-25 10.28.19_resized.jpg" alt="Marco Yañez">
-            </div>
-            <h1 class="reveal">MARCO YAÑEZ</h1>
-            <!-- Auto-sliding text: role, vision, mission -->
-            <div class="hero-slider reveal">
-                <div class="hero-slides">
-                    <div class="hero-slide">
-                        <span class="role">Full Stack Developer</span>
-                        <span class="sub">Desarrollo de Páginas web, Landings & Aplicaciones Web, Software, Consultoria
-                            TECH</span>
-                    </div>
-                    <div class="hero-slide">
-                        <span class="role">Mi Visión</span>
-                        <span class="sub">Crear experiencias digitales que conecten personas con soluciones
-                            reales</span>
-                    </div>
-                    <div class="hero-slide">
-                        <span class="role">Mi Misión</span>
-                        <span class="sub">Dominar el stack completo y construir productos que impacten
-                            positivamente</span>
-                    </div>
-                </div>
-            </div>
-            <div class="social-links reveal">
-                <a href="https://www.facebook.com/" target="_blank" class="social-circle-link" title="Facebook">
-                    <i class="fa-brands fa-facebook-f"></i>
-                </a>
-                <a href="https://www.instagram.com/" target="_blank" class="social-circle-link" title="Instagram">
-                    <i class="fa-brands fa-instagram"></i>
-                </a>
-                <a href="https://www.linkedin.com/" target="_blank" class="social-circle-link" title="LinkedIn">
-                    <i class="fa-brands fa-linkedin-in"></i>
-                </a>
-                <a href="https://www.youtube.com/@marcozionenator" target="_blank" class="social-circle-link"
-                    title="YouTube">
-                    <i class="fa-brands fa-youtube"></i>
-                </a>
-                <a href="https://wa.me/56984117478" target="_blank" class="social-circle-link" title="WhatsApp">
-                    <i class="fa-brands fa-whatsapp"></i>
-                </a>
-            </div>
-        </div>
-    </section>
+    <div class="scroll-indicator">
+      <span>SCROLL</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
 
-    <!-- Sobre Mi -->
-    <section id="sobremi" class="sobremi">
-        <div class="contenido-seccion">
-            <h2 class="reveal">SOBRE MÍ</h2>
+  <!-- ═══════════════════════════ SOBRE MÍ ═══════════════════════════ -->
+  <section id="sobremi">
+    <div class="section">
+      <h2 class="section-title">SOBRE MÍ</h2>
+      <div class="bio-card glass">
+        <p id="bioText"></p><span id="bioCursor" style="color:var(--clr-primary);font-weight:700">|</span>
+      </div>
+      <div class="interests-grid">
+        <div class="interest-chip reveal-up"><i class="fa-solid fa-code"></i>Desarrollo Web</div>
+        <div class="interest-chip reveal-up"><i class="fa-solid fa-brain"></i>IA & ML</div>
+        <div class="interest-chip reveal-up"><i class="fa-solid fa-database"></i>Bases de Datos</div>
+        <div class="interest-chip reveal-up"><i class="fa-solid fa-server"></i>DevOps</div>
+        <div class="interest-chip reveal-up"><i class="fa-solid fa-palette"></i>UI/UX Design</div>
+        <div class="interest-chip reveal-up"><i class="fa-solid fa-camera"></i>Fotografía</div>
+        <div class="interest-chip reveal-up"><i class="fa-solid fa-chess"></i>Ajedrez</div>
+        <div class="interest-chip reveal-up"><i class="fa-solid fa-book"></i>Filosofía</div>
+        <div class="interest-chip reveal-up"><i class="fa-solid fa-dumbbell"></i>Fitness</div>
+        <div class="interest-chip reveal-up"><i class="fa-solid fa-music"></i>Música</div>
+      </div>
+    </div>
+  </section>
 
-            <!-- Bio full width typewriter -->
-            <div class="sobre-bio glass reveal">
-                <p class="typewriter-text" id="bioText"></p>
-                <span class="typewriter-cursor" id="bioCursor">|</span>
-            </div>
+  <!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
+  <footer>
+    <div class="nav-logo" style="font-size:1.4rem;margin-bottom:0.5rem">
+      <span class="grad-text">Dev</span>Marco
+    </div>
+    <p style="margin-bottom:1rem">
+      Desarrollado con <span style="color:#e11d48">❤︎</span> y mucho ☕ en Chile
+    </p>
+    <p>© 2025 Marco Yañez — Todos los derechos reservados</p>
+  </footer>
 
-            <!-- Bottom row: intereses full width -->
-            <div class="sobre-intereses reveal">
-                <h3>INTERESES &amp; HOBBIES</h3>
-                <div class="intereses-grid">
-                    <div class="interes-card glass"><i class="fa-solid fa-gamepad"></i><span>Juegos</span></div>
-                    <div class="interes-card glass"><i class="fa-solid fa-music"></i><span>Música</span></div>
-                    <div class="interes-card glass"><i class="fa-solid fa-plane"></i><span>Viajar</span></div>
-                    <div class="interes-card glass"><i class="fa-solid fa-bicycle"></i><span>Deporte</span></div>
-                    <div class="interes-card glass"><i class="fa-solid fa-book"></i><span>Libros</span></div>
-                    <div class="interes-card glass"><i class="fa-brands fa-python"></i><span>Python</span></div>
-                    <div class="interes-card glass"><i class="fa-solid fa-robot"></i><span>IA</span></div>
-                    <div class="interes-card glass"><i class="fa-solid fa-camera"></i><span>Fotografía</span></div>
-                    <div class="interes-card glass"><i class="fa-solid fa-film"></i><span>Cine</span></div>
-                    <div class="interes-card glass"><i class="fa-solid fa-brain"></i><span>Machine Learning</span></div>
-                    <div class="interes-card glass"><i class="fa-solid fa-network-wired"></i><span>Deep Learning</span>
-                    </div>
-                    <div class="interes-card glass"><i class="fa-solid fa-gears"></i><span>Automatización</span></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills -->
-    <section class="skills" id="skills">
-        <div class="contenido-seccion">
-            <h2 class="reveal">MIS SKILLS</h2>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;" class="reveal">
-
-                <!-- Card 1: Técnicas -->
-                <div class="glass" style="padding: 1.8rem;">
-                    <p
-                        style="color: var(--primary-color); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1.2rem; border-bottom: 1px solid var(--glass-border); padding-bottom: 0.75rem;">
-                        <i class="fa-solid fa-code"></i> &nbsp;Técnicas
-                    </p>
-                    <div class="skill-item">
-                        <div class="skill-info"><span>HTML &amp; CSS</span><span class="pct">86%</span></div>
-                        <div class="barra-skill">
-                            <div class="progreso" style="width:86%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info"><span>Bootstrap</span><span class="pct">85%</span></div>
-                        <div class="barra-skill">
-                            <div class="progreso" style="width:85%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info"><span>JavaScript</span><span class="pct">70%</span></div>
-                        <div class="barra-skill">
-                            <div class="progreso" style="width:70%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info"><span>Python</span><span class="pct">75%</span></div>
-                        <div class="barra-skill">
-                            <div class="progreso" style="width:75%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info"><span>Node JS</span><span class="pct">45%</span></div>
-                        <div class="barra-skill">
-                            <div class="progreso" style="width:45%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info"><span>PostgreSQL</span><span class="pct">75%</span></div>
-                        <div class="barra-skill">
-                            <div class="progreso" style="width:75%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info"><span>Git &amp; GitHub</span><span class="pct">85%</span></div>
-                        <div class="barra-skill">
-                            <div class="progreso" style="width:85%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info"><span>Manejo de IA</span><span class="pct">80%</span></div>
-                        <div class="barra-skill">
-                            <div class="progreso" style="width:80%"></div>
-                        </div>
-                    </div>
-                    <div class="skills-tags"
-                        style="margin-top:1.2rem; padding-top:1rem; border-top:1px solid var(--glass-border);">
-                        <span class="skill-tag"><i class="fa-solid fa-code"></i> VS Code</span>
-                        <span class="skill-tag"><i class="fa-solid fa-robot"></i> ChatGPT</span>
-                        <span class="skill-tag"><i class="fa-brands fa-figma"></i> Figma</span>
-                        <span class="skill-tag"><i class="fa-solid fa-database"></i> Supabase</span>
-                    </div>
-                </div>
-
-                <!-- Card 2: Soft Skills -->
-                <div class="glass" style="padding: 1.8rem;">
-                    <p
-                        style="color: var(--primary-color); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1.2rem; border-bottom: 1px solid var(--glass-border); padding-bottom: 0.75rem;">
-                        <i class="fa-solid fa-brain"></i> &nbsp;Soft Skills
-                    </p>
-                    <div class="skill-item">
-                        <div class="skill-info"><span>Aprendizaje Rápido</span><span class="pct">95%</span></div>
-                        <div class="barra-skill">
-                            <div class="progreso" style="width:95%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info"><span>Resiliencia</span><span class="pct">90%</span></div>
-                        <div class="barra-skill">
-                            <div class="progreso" style="width:90%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info"><span>Trabajo en Equipo</span><span class="pct">90%</span></div>
-                        <div class="barra-skill">
-                            <div class="progreso" style="width:90%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info"><span>Resolución de Problemas</span><span class="pct">88%</span></div>
-                        <div class="barra-skill">
-                            <div class="progreso" style="width:88%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info"><span>Proactividad</span><span class="pct">85%</span></div>
-                        <div class="barra-skill">
-                            <div class="progreso" style="width:85%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info"><span>Liderazgo</span><span class="pct">80%</span></div>
-                        <div class="barra-skill">
-                            <div class="progreso" style="width:80%"></div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Trayectoria / Curriculum -->
-    <section id="curriculum" class="curriculum">
-        <div class="contenido-seccion">
-            <h2 class="reveal">TRAYECTORIA</h2>
-            <div class="timeline reveal">
-                <div class="timeline-item glass">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-date">2026 &mdash; Presente</span>
-                        <h3>Desarrollador Web Freelance</h3>
-                        <p>Diseño y desarrollo de aplicaciones web full stack para clientes. Especialización en UI/UX
-                            moderna, bases de datos y despliegue en la nube.</p>
-                    </div>
-                </div>
-                <div class="timeline-item glass">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-date">2022 a 2025</span>
-                        <h3>Formación Full Stack &mdash; Autodidacta</h3>
-                        <p>Estudio intensivo de HTML, CSS, JavaScript, Bootstrap, Python, IA y bases de datos
-                            relacionales.
-                            Primeros proyectos personales publicados.</p>
-                    </div>
-                </div>
-                <div class="timeline-item glass">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-date">Anterior</span>
-                        <h3>Experiencia Profesional Diversa</h3>
-                        <p>Trayectoria en distintas industrias que forjó habilidades de liderazgo, trabajo en equipo y
-                            resolución de problemas bajo presión.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Portfolio -->
-    <section id="portfolio" class="portfolio">
-        <div class="contenido-seccion">
-            <h2 class="reveal">PORTAFOLIO</h2>
-            <div class="galeria reveal">
-
-                <!-- Proyecto 1: Lumbrera Coop (tiene screenshot real) -->
-                <div class="proyecto glass">
-                    <img src="img/lumbrera_screenshot.png" alt="Cooperativa Lumbrera">
-                    <div class="proyecto-overlay">
-                        <h3>Cooperativa Lumbrera</h3>
-                        <p>E-commerce + Landing para pisquera artesanal chilena con carrito de compras, autenticación y
-                            panel de socios.</p>
-                        <div class="proyecto-tags">
-                            <span>HTML</span><span>CSS</span><span>JS</span><span>Supabase</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Proyecto 2: App Clínica -->
-                <div class="proyecto glass proyecto-dark">
-                    <div class="proyecto-placeholder">
-                        <i class="fa-solid fa-hospital-user"></i>
-                        <span>App Clínica</span>
-                    </div>
-                    <div class="proyecto-overlay">
-                        <h3>App Clínica</h3>
-                        <p>Sistema de gestión clínica con módulos de pacientes, agendamiento, pagos, estadísticas y
-                            administración multi-rol.</p>
-                        <div class="proyecto-tags">
-                            <span>Django</span><span>Python</span><span>PostgreSQL</span><span>Bootstrap</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Proyecto 3: ERP Talento 360 -->
-                <div class="proyecto glass proyecto-dark">
-                    <div class="proyecto-placeholder">
-                        <i class="fa-solid fa-chart-pie"></i>
-                        <span>ERP Talento 360</span>
-                    </div>
-                    <div class="proyecto-overlay">
-                        <h3>ERP Talento 360</h3>
-                        <p>Sistema ERP de gestión de talento humano con módulo predictivo de IA para análisis de
-                            desempeño y rotación.</p>
-                        <div class="proyecto-tags">
-                            <span>React</span><span>Vite</span><span>Python</span><span>IA</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Proyecto 4: ERP Vendimia -->
-                <div class="proyecto glass proyecto-dark">
-                    <div class="proyecto-placeholder">
-                        <i class="fa-solid fa-wine-glass"></i>
-                        <span>ERP Vendimia 2025</span>
-                    </div>
-                    <div class="proyecto-overlay">
-                        <h3>ERP Vendimia 2025</h3>
-                        <p>Sistema de gestión para temporada de vendimia: control de ingresos de uva, producción,
-                            personal y reportes.</p>
-                        <div class="proyecto-tags">
-                            <span>Django</span><span>Python</span><span>PostgreSQL</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Proyecto 5: Agente YouTube IA -->
-                <div class="proyecto glass">
-                    <img src="img/agente_yt_screenshot.png" alt="Agente YouTube IA">
-                    <div class="proyecto-overlay">
-                        <h3>Agente YouTube IA</h3>
-                        <p>Agente de inteligencia artificial para generación automatizada de videos con narración,
-                            imágenes y efectos.</p>
-                        <div class="proyecto-tags">
-                            <span>Python</span><span>IA</span><span>TTS</span><span>FFmpeg</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Proyecto 6: Blog Metastasis Mental -->
-                <div class="proyecto glass">
-                    <img src="img/Blog.png" alt="Blog Metastasis Mental">
-                    <div class="proyecto-overlay">
-                        <h3>Metastasis Mental</h3>
-                        <p>Blog personal de fotografía, pensamiento y escritura. Primer proyecto web publicado.</p>
-                        <div class="proyecto-tags">
-                            <span>HTML</span><span>CSS</span><span>JS</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Contacto -->
-    <section id="contacto" class="contacto">
-        <div class="contenido-seccion">
-            <h2 class="reveal">CONTÁCTAME</h2>
-            <div class="fila reveal">
-                <div class="col glass form-group">
-                    <input type="text" placeholder="Tu Nombre">
-                    <input type="text" placeholder="Número telefónico">
-                    <input type="email" placeholder="Correo electrónico">
-                    <input type="text" placeholder="Tema">
-                    <textarea cols="30" rows="6" placeholder="¿Cómo puedo ayudarte?"></textarea>
-                    <button class="btn-enviar">ENVIAR MENSAJE</button>
-                </div>
-
-                <div class="col contacto-info reveal">
-                    <div class="stat-pill glass">
-                        <i class="fa-solid fa-bolt"></i>
-                        <div>
-                            <span class="stat-label">Disponibilidad</span>
-                            <span class="stat-value">Inmediata</span>
-                        </div>
-                    </div>
-                    <div class="stat-pill glass">
-                        <i class="fa-solid fa-briefcase"></i>
-                        <div>
-                            <span class="stat-label">Modalidad</span>
-                            <span class="stat-value">Consultoría Freelance</span>
-                        </div>
-                    </div>
-                    <div class="stat-pill glass">
-                        <i class="fa-solid fa-location-dot"></i>
-                        <div>
-                            <span class="stat-label">Ubicación</span>
-                            <span class="stat-value">Chile</span>
-                        </div>
-                    </div>
-                    <div class="stat-pill glass">
-                        <i class="fa-solid fa-envelope"></i>
-                        <div>
-                            <span class="stat-label">Email</span>
-                            <span class="stat-value">marcozionenator@gmail.com</span>
-                        </div>
-                    </div>
-                    <div class="stat-pill glass">
-                        <i class="fa-brands fa-whatsapp"></i>
-                        <div>
-                            <span class="stat-label">WhatsApp</span>
-                            <a href="https://wa.me/56984117478" target="_blank" class="stat-value"
-                                style="color:var(--primary-color);text-decoration:none;"><i
-                                    class="fa-brands fa-whatsapp"></i> Contactar por WhatsApp</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2024 Portafolio Personal - Marco Yañez</p>
-    </footer>
-
-    <script src="script.js"></script>
+  <script type="module" src="/src/main.js"></script>
 </body>
-
 </html>

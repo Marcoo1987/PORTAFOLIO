@@ -1,0 +1,32 @@
+{
+  "name": "portafolio",
+  "version": "1.0.0",
+  "description": "Este es un portafolio desarrollado como parte del Bootcamp de Python 2024.",
+  "main": "pricing.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Marcoo1987/PORTAFOLIO.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Marcoo1987/PORTAFOLIO/issues"
+  },
+  "homepage": "https://github.com/Marcoo1987/PORTAFOLIO#readme",
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.2.2",
+    "gsap": "^3.14.2",
+    "lenis": "^1.3.21",
+    "tailwindcss": "^4.2.2",
+    "three": "^0.183.2",
+    "vanilla-tilt": "^1.8.1",
+    "vite": "^8.0.3"
+  }
+}
