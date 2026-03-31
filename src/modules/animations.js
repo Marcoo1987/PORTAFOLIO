@@ -24,6 +24,9 @@ export function initCursor() {
   if (!dot || !ring) return;
 
   let mx = 0, my = 0;
+  // Centrado inicial de GSAP para evitar el desfase
+  gsap.set([dot, ring], { xPercent: -50, yPercent: -50 });
+
   document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
 
   gsap.ticker.add(() => {

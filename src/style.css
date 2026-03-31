@@ -97,8 +97,8 @@ body:has(button:hover) #cursor-ring {
   transition: width 0.2s, height 0.2s, border-color 0.2s;
 }
 
-body { cursor: none; }
-a, button, input, textarea, .project-card, .plan-card { cursor: none; }
+/* Se eliminó cursor:none para que no se "pierda" visualmente el puntero del OS
+   mientras el anillo animado lo envuelve. */
 
 /* ──────────────────────────────
    14. WhatsApp Floating Button
@@ -168,10 +168,12 @@ body::after {
   100% { transform: skew(0deg); }
 }
 
-/* ─── Hero WebGL Canvas ─────────────────────── */
+/* ─── Global WebGL Canvas ─────────────────────── */
 #three-canvas {
-  position: absolute; inset: 0; z-index: 0;
+  position: fixed; inset: 0;
+  z-index: -1;
   opacity: 0.55;
+  pointer-events: none;
 }
 
 /* ─── Reveal animations (GSAP targets) ──────── */
@@ -212,8 +214,7 @@ body::after {
   min-height: 100vh; display: flex; align-items: center; justify-content: center;
   position: relative; overflow: hidden;
   background: radial-gradient(ellipse at 30% 50%, rgba(28,182,152,0.12) 0%, transparent 60%),
-              radial-gradient(ellipse at 70% 20%, rgba(59,130,246,0.08) 0%, transparent 50%),
-              var(--clr-bg);
+              radial-gradient(ellipse at 70% 20%, rgba(59,130,246,0.08) 0%, transparent 50%);
   padding: 6rem 1.5rem 2rem;
 }
 .hero-content { text-align: center; position: relative; z-index: 1; }
