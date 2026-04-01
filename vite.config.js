@@ -3,6 +3,7 @@ import tailwindcss from '@tailwindcss/vite';
 import { resolve } from 'path';
 
 export default defineConfig({
+  base: '/PORTAFOLIO/',
   plugins: [tailwindcss()],
   build: {
     outDir: 'dist',
