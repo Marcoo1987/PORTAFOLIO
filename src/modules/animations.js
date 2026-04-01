@@ -446,68 +446,74 @@ export function initWhatsappAnimation() {
     if (icons.length > 0) {
       const firstRect = icons[0].getBoundingClientRect();
       const firstX = firstRect.left + (firstRect.width / 2) - 30;
-      const firstY = firstRect.top - 20; // Un poco arriba para que caiga
+      const firstY = firstRect.top - 60; // REBOTE INICIAL SOBRE EL PRIMERO
 
       tl.to(wsp, {
         autoAlpha: 1,
         left: firstX,
         top: firstY,
         rotation: 360,
-        duration: 1.4,
+        duration: 1.6,
         ease: "power2.out"
       });
 
-      // PEQUEÑA REACCIÓN DEL PRIMER ICONO
-      tl.to(icons[0], { scale: 1.3, filter: 'brightness(1.5)', duration: 0.2, yoyo: true, repeat: 1 }, "-=0.2");
+      // REACCIÓN DE "PRESIÓN" EN EL PRIMER ICONO
+      tl.to(icons[0], { y: 15, scale: 0.85, duration: 0.15, yoyo: true, repeat: 1 }, "-=0.2");
 
-      // 2. SALTOS SOBRE/A TRAVÉS DE CADA ICONO
+      // 2. SALTOS ACROBÁTICOS SOBRE CADA ICONO Restante
       for (let i = 1; i < icons.length; i++) {
         const rect = icons[i].getBoundingClientRect();
         const targetX = rect.left + (rect.width / 2) - 30;
-        const targetY = rect.top;
+        const targetY = rect.top - 50; // ALTURA DE "REBOTE" (SOBRE EL ICONO)
 
-        // Trayectoria de arco (salto por encima)
+        // Trayectoria de arco fluido (parábola)
         tl.to(wsp, {
           left: targetX,
-          top: targetY - 60, // Pico del salto por encima
-          rotation: "+=180",
-          duration: 0.5,
+          top: targetY - 80, // Pico del arco entre iconos
+          rotation: "+=120",
+          duration: 0.4,
           ease: "power1.out"
-        }, "-=0.1");
+        }, "-=0.05");
 
-        // Caída al icono
+        // Punto de "impacto a distancia" sobre el icono
         tl.to(wsp, {
-          top: targetY - 10, // Toca levemente o pasa por encima
-          duration: 0.2,
-          ease: "power1.in"
+          top: targetY,
+          duration: 0.3,
+          ease: "power2.in"
         });
 
-        tl.to(icons[i], { scale: 1.4, filter: 'brightness(1.8)', duration: 0.2, yoyo: true, repeat: 1 }, "-=0.1");
+        // REACCIÓN DE "PRESIÓN FISICA" (El icono se hunde al pasar el botón)
+        tl.to(icons[i], { 
+          y: 20, 
+          scale: 0.8, 
+          filter: 'brightness(1.5)', 
+          duration: 0.15, 
+          yoyo: true, 
+          repeat: 1 
+        }, "-=0.2");
       }
     }
 
     // 3. GRAN SALTO FINAL A LA ESQUINA (bottom-right)
-    // Coordenadas finales (fixed en CSS: bottom: 115px, right: 34px)
     const finalX = window.innerWidth - 34 - 60;
     const finalY = window.innerHeight - 115 - 60;
 
     tl.to(wsp, {
       left: finalX,
-      top: finalY - 200, // Pico del gran salto final
-      rotation: "+=720",
-      duration: 1.5,
-      ease: "power1.out"
-    }, "+=0.3");
+      top: finalY - 250, // Gran parábola final
+      rotation: "+=360",
+      duration: 1.8,
+      ease: "power2.out"
+    }, "+=0.2");
 
-    // Caída final con rebote
     tl.to(wsp, {
       top: finalY,
-      duration: 1.0,
+      duration: 1.2,
       ease: "bounce.out"
     });
 
     tl.add(() => {
-      // Limpiamos todo para que el CSS (bottom: 115px, right: 34px) tome el mando
+      // Limpieza de estilos inline para que el CSS (bottom/right) tome el control
       gsap.set(wsp, { clearProps: "all" });
       wsp.classList.add('ready');
     });
