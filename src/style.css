@@ -261,7 +261,7 @@ body::after {
               radial-gradient(ellipse at 70% 20%, rgba(59,130,246,0.08) 0%, transparent 50%);
   padding: 6rem 1.5rem 2rem;
 }
-.hero-content { text-align: center; position: relative; z-index: 10; padding-bottom: 5rem; }
+.hero-content { text-align: center; position: relative; z-index: 10; padding-bottom: 10rem; }
 .hero-avatar {
   width: 160px; height: 160px;
   border-radius: 50%; overflow: hidden;
@@ -324,11 +324,10 @@ body::after {
   background: var(--gradient);
   color: white; font-weight: 700; border-radius: 50px;
   text-decoration: none; border: none; cursor: none;
-  transition: var(--transition);
-  box-shadow: 0 0 30px var(--clr-primary-glow);
-  z-index: 20;
   position: relative;
-  opacity: 1; /* Fallback si falla GSAP */
+  opacity: 1 !important; 
+  visibility: visible !important;
+  transform: scale(1);
 }
 .hero-cta:hover { transform: translateY(-3px) scale(1.04); box-shadow: 0 0 50px var(--clr-primary-glow); }
 .social-links { display: flex; justify-content: center; gap: 1rem; margin-top: 2rem; }

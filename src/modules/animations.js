@@ -170,7 +170,7 @@ export function initHeroAnimation() {
   tl.from('.hero-avatar',        { opacity: 0, scale: 0.6, duration: 1 }, 0.3)
     .from('.hero-role',          { opacity: 0, y: 30, duration: 0.7 }, 0.8)
     .from('.hero-slider-wrap',   { opacity: 0, y: 20, duration: 0.7 }, 1)
-    .from('.hero-cta',           { opacity: 0, scale: 0.8, duration: 0.6 }, 1.1)
+    .from('.hero-cta',           { scale: 0.8, y: 20, duration: 0.6 }, 1.1)
     .from('.social-links',       { opacity: 0, y: 15, duration: 0.6 }, 1.3)
     .from('.scroll-indicator',   { opacity: 0, duration: 0.8 }, 1.6);
 }
