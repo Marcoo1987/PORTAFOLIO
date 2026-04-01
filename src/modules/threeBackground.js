@@ -72,10 +72,10 @@ export function initThreeBackground() {
   });
 
   /* ── Animate ── */
-  const clock = new THREE.Clock();
+  const startTime = performance.now();
   function animate() {
     requestAnimationFrame(animate);
-    const t = clock.getElapsedTime();
+    const t = (performance.now() - startTime) * 0.001;
     particles.rotation.y = t * 0.04 + mouseX * 0.3;
     particles.rotation.x = t * 0.02 - mouseY * 0.2;
     renderer.render(scene, camera);

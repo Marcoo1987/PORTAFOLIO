@@ -7,10 +7,16 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"/>
+  <style id="anti-fouc">body { opacity: 0; visibility: hidden; background-color: #020617; }</style>
 </head>
 <body style="padding-top: 80px;">
+
+  <!-- Global 3D Background -->
+  <canvas id="three-canvas"></canvas>
+
+  <!-- Custom Cursor -->
+  <div id="cursor-flame"></div>
   <div id="cursor-dot"></div>
-  <div id="cursor-ring"></div>
 
   <!-- ═══════════════════════════ NAVBAR ═══════════════════════════ -->
   <nav id="navbar" class="scrolled">
@@ -20,7 +26,7 @@
     <ul class="nav-links" id="navLinks">
       <li><a href="/"         class="nav-link">Inicio</a></li>
       <li><a href="/sobre-mi.html"  class="nav-link">Sobre Mí</a></li>
-      <li><a href="/portafolio.html" class="nav-link">Portafolio</a></li>
+      <li><a href="/galeria.html"    class="nav-link">Portafolio</a></li>
       <li><a href="/precios.html"    class="nav-link">Precios</a></li>
       <li><a href="/contacto.html"   class="nav-link active">Contacto</a></li>
     </ul>
@@ -48,7 +54,7 @@
             <i class="fa-solid fa-envelope"></i>
             <div>
               <div class="info-pill-label">Email</div>
-              <div class="info-pill-value">marcoyanezneira@gmail.com</div>
+              <div class="info-pill-value">marcozionenator@gmail.com</div>
             </div>
           </div>
           <div class="info-pill glass">
@@ -80,9 +86,22 @@
   <!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
   <footer>
     <div class="nav-logo" style="font-size:1.4rem;margin-bottom:0.5rem"><span class="grad-text">Dev</span>Marco</div>
+    <div class="footer-socials">
+      <a href="https://github.com/Marcoo1987" target="_blank" rel="noopener" class="social-link"><i class="fa-brands fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/marco-yañez-8b1b2b/" target="_blank" rel="noopener" class="social-link"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a href="https://www.instagram.com/marcoo_1987/" target="_blank" rel="noopener" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+    </div>
     <p style="margin-bottom:1rem">Desarrollado con <span style="color:#e11d48">❤︎</span> y mucho ☕ en Chile</p>
-    <p>© 2025 Marco Yañez — Todos los derechos reservados</p>
+    <p>© 2026 Marco Yañez — Todos los derechos reservados</p>
   </footer>
+
+  <!-- Botón de WhatsApp Flotante -->
+  <a href="https://wa.me/56984117478" target="_blank" rel="noopener" class="wsp-float" id="wsp-float" title="Chat con Marco (WhatsApp)">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- Canvas para la estela de llama dinámica -->
+  <canvas id="flame-canvas"></canvas>
 
   <script type="module" src="/src/main.js"></script>
   <script>
@@ -92,7 +111,7 @@
       const msg   = document.getElementById('msgInput').value.trim();
       if (!name || !email || !msg) { alert('Por favor completa todos los campos.'); return; }
       const body = encodeURIComponent(`Nombre: ${name}\nEmail: ${email}\n\n${msg}`);
-      window.open(`mailto:marcoyanezneira@gmail.com?subject=Contacto desde portafolio&body=${body}`, '_blank');
+      window.open(`mailto:marcozionenator@gmail.com?subject=Contacto desde portafolio&body=${body}`, '_blank');
     }
   </script>
 </body>

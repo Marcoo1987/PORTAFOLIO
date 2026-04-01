@@ -5,20 +5,20 @@ export function renderPricing() {
   if (!container) return;
 
   container.innerHTML = PRICING.map(p => `
-    <div class="pricing-card glass reveal-up ${p.popular ? 'popular' : ''}">
-      ${p.popular ? '<div class="popular-badge">⭐ MÁS RECOMENDADO</div>' : ''}
+    <div class="pricing-card glass ${p.popular ? 'popular' : ''}">
+      ${p.popular ? '<div class="badge-popular">⭐ MÁS RECOMENDADO</div>' : ''}
       <div class="plan-icon"><i class="${p.icon}"></i></div>
-      <div class="plan-name grad-text">${p.name}</div>
+      <div class="plan-name">${p.name}</div>
       <div class="plan-price">${p.price}<span>${p.period}</span></div>
       <div class="plan-desc">${p.description}</div>
-      <ul class="plan-features">
+      <ul class="features-list">
         ${p.features.map(f => `
           <li class="${f.ok ? '' : 'missing'}">
             <i class="${f.ok ? 'fa-solid fa-check' : 'fa-solid fa-xmark'}"></i>
             ${f.text}
           </li>`).join('')}
       </ul>
-      <button class="plan-cta" onclick="handlePlanCTA('${p.id}', '${p.name}')">
+      <button class="btn-plan" onclick="handlePlanCTA('${p.id}', '${p.name}')">
         ${p.cta}
       </button>
     </div>`).join('');

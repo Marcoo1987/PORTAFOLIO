@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Marco Yañez | Galería de Proyectos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"/>
+  <style id="anti-fouc">body { opacity: 0; visibility: hidden; background-color: #020617; }</style>
+</head>
+<body style="padding-top: 80px;">
+
+  <!-- Global 3D Background -->
+  <canvas id="three-canvas"></canvas>
+
+  <!-- Custom Cursor -->
+  <div id="cursor-flame"></div>
+  <div id="cursor-dot"></div>
+
+  <!-- ═══════════════════════════ NAVBAR ═══════════════════════════ -->
+  <nav id="navbar" class="scrolled">
+    <div class="nav-logo">
+      <span class="grad-text">Dev</span>Marco
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/"         class="nav-link">Inicio</a></li>
+      <li><a href="/sobre-mi.html"  class="nav-link">Sobre Mí</a></li>
+      <li><a href="/galeria.html"    class="nav-link active">Portafolio</a></li>
+      <li><a href="/precios.html"    class="nav-link">Precios</a></li>
+      <li><a href="/contacto.html"   class="nav-link">Contacto</a></li>
+    </ul>
+    <div class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </nav>
+
+
+  <!-- ═══════════════════════════ GALERÍA ═══════════════════════════ -->
+
+  <section id="portafolio" style="background: radial-gradient(ellipse at 50% 50%, rgba(28,182,152,0.05) 0%, transparent 70%);">
+    <div class="section">
+      <h1 class="section-title">TODOS LOS PROYECTOS</h1>
+      <p class="text-center" style="color:var(--clr-muted); margin-bottom:4rem;">
+        Explora detalladamente mis últimos trabajos y desarrollos.
+      </p>
+      
+      <div class="portfolio-grid" id="portfolioGrid">
+        <!-- Inyectado por renderProjects.js -->
+        <div style="grid-column: 1/-1; text-align: center; padding: 5rem 0;">
+          <i class="fa-solid fa-spinner fa-spin" style="font-size: 3rem; color: var(--clr-primary);"></i>
+          <p style="margin-top: 1rem; color: var(--clr-muted);">Cargando galería maestra...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ MODAL ═══════════════════════════ -->
+  <div id="projectModal" class="modal-overlay">
+    <div class="modal-box glass">
+      <button class="modal-close-btn" id="modalCloseBtn"><i class="fa-solid fa-xmark"></i></button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="nav-logo" style="font-size:1.4rem;margin-bottom:0.5rem"><span class="grad-text">Dev</span>Marco</div>
+    <div class="footer-socials">
+      <a href="https://github.com/Marcoo1987" target="_blank" rel="noopener" class="social-link"><i class="fa-brands fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/marco-yañez-8b1b2b/" target="_blank" rel="noopener" class="social-link"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a href="https://www.instagram.com/marcoo_1987/" target="_blank" rel="noopener" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+    </div>
+    <p>© 2026 Marco Yañez — Todos los derechos reservados</p>
+  </footer>
+
+  <!-- Botón de WhatsApp Flotante -->
+  <a href="https://wa.me/56984117478" target="_blank" rel="noopener" class="wsp-float" id="wsp-float" title="Chat con Marco (WhatsApp)">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- Canvas para la estela de llama dinámica -->
+  <canvas id="flame-canvas"></canvas>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

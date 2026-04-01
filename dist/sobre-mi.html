@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Marco Yañez — Desarrollador Full Stack & Agentes de IA. Conoce mi historia, habilidades y trayectoria."/>
   <title>Marco Yañez | Sobre Mí</title>
 
   <!-- Google Fonts -->
@@ -10,14 +11,22 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"/>
-  <script type="module" crossorigin src="/assets/main-DaGXkK_M.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/main-D-RifcAh.css">
+  <!-- Estilos base críticos -->
+  <style id="anti-fouc">body { opacity: 0; visibility: hidden; background-color: #020617; }</style>
+  <style>
+    #three-canvas { position: fixed; inset: 0; z-index: -1; pointer-events: none; }
+  </style>
+  <script type="module" crossorigin src="/assets/main-NETR_0nn.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/main-F6-JEBOG.css">
 </head>
 <body style="padding-top: 80px;">
 
+  <!-- Global 3D Background -->
+  <canvas id="three-canvas"></canvas>
+
   <!-- Custom Cursor -->
+  <div id="cursor-flame"></div>
   <div id="cursor-dot"></div>
-  <div id="cursor-ring"></div>
 
   <!-- ═══════════════════════════ NAVBAR ═══════════════════════════ -->
   <nav id="navbar" class="scrolled">
@@ -25,44 +34,110 @@
       <span class="grad-text">Dev</span>Marco
     </div>
     <ul class="nav-links" id="navLinks">
-      <li><a href="/"         class="nav-link">Inicio</a></li>
-      <li><a href="/sobre-mi.html"  class="nav-link active">Sobre Mí</a></li>
-      <li><a href="/portafolio.html" class="nav-link">Portafolio</a></li>
-      <li><a href="/precios.html"    class="nav-link">Precios</a></li>
-      <li><a href="/contacto.html"   class="nav-link">Contacto</a></li>
+      <li><a href="/"              class="nav-link">Inicio</a></li>
+      <li><a href="/sobre-mi.html" class="nav-link active">Sobre Mí</a></li>
+      <li><a href="/galeria.html"  class="nav-link">Portafolio</a></li>
+      <li><a href="/precios.html"  class="nav-link">Precios</a></li>
+      <li><a href="/contacto.html" class="nav-link">Contacto</a></li>
     </ul>
     <div class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></div>
   </nav>
 
-  <!-- ═══════════════════════════ SOBRE MÍ ═══════════════════════════ -->
-  <section id="sobremi">
-    <div class="section">
-      <h2 class="section-title">SOBRE MÍ</h2>
-      <div class="bio-card glass">
-        <p id="bioText"></p><span id="bioCursor" style="color:var(--clr-primary);font-weight:700">|</span>
+  <!-- ═══════════════════════ HERO SOBRE MÍ ═══════════════════════ -->
+  <section id="sobremi-hero" class="sm-hero-section">
+    <div class="sm-main-card">
+      
+      <span class="sm-label-teal">DESARROLLADOR DE APLICACIONES FULLSTACK</span>
+      
+      <h1 class="sm-title-huge">Marco Yañez</h1>
+      
+      <div class="sm-description-text">
+        <p id="bioText" style="display:inline;"></p><span id="bioCursor" style="color:#1CB698;font-weight:700">|</span>
       </div>
-      <div class="interests-grid">
-        <div class="interest-chip reveal-up"><i class="fa-solid fa-code"></i>Desarrollo Web</div>
-        <div class="interest-chip reveal-up"><i class="fa-solid fa-brain"></i>IA & ML</div>
-        <div class="interest-chip reveal-up"><i class="fa-solid fa-database"></i>Bases de Datos</div>
-        <div class="interest-chip reveal-up"><i class="fa-solid fa-server"></i>DevOps</div>
-        <div class="interest-chip reveal-up"><i class="fa-solid fa-palette"></i>UI/UX Design</div>
-        <div class="interest-chip reveal-up"><i class="fa-solid fa-camera"></i>Fotografía</div>
-        <div class="interest-chip reveal-up"><i class="fa-solid fa-chess"></i>Ajedrez</div>
-        <div class="interest-chip reveal-up"><i class="fa-solid fa-book"></i>Filosofía</div>
-        <div class="interest-chip reveal-up"><i class="fa-solid fa-dumbbell"></i>Fitness</div>
-        <div class="interest-chip reveal-up"><i class="fa-solid fa-music"></i>Música</div>
+
+      <div class="sm-actions">
+        <a href="/galeria.html" class="sm-btn sm-btn-primary">
+          <i class="fa-solid fa-rocket"></i> Ver proyectos
+        </a>
+        <a href="/contacto.html" class="sm-btn sm-btn-outline">
+          <i class="fa-solid fa-paper-plane"></i> Contáctame
+        </a>
+      </div>
+
+      <div class="sm-skills-row">
+        <span class="sm-skill-pill"><i class="fa-brands fa-python"></i> Python</span>
+        <span class="sm-skill-pill"><i class="fa-brands fa-js"></i> JavaScript</span>
+        <span class="sm-skill-pill"><i class="fa-solid fa-server"></i> Django</span>
+        <span class="sm-skill-pill"><i class="fa-solid fa-robot"></i> LangChain</span>
+        <span class="sm-skill-pill"><i class="fa-brands fa-react"></i> React</span>
+        <span class="sm-skill-pill"><i class="fa-brands fa-docker"></i> Docker</span>
+        <span class="sm-skill-pill"><i class="fa-solid fa-brain"></i> OpenAI</span>
+        <span class="sm-skill-pill"><i class="fa-solid fa-database"></i> PostgreSQL</span>
+      </div>
+
+      <div class="sm-interests-section">
+        <div class="sm-divider"></div>
+        <h3 class="sm-interests-title">MIS INTERESES</h3>
+        <div class="interests-grid">
+          <div class="interest-card glass"><i class="fa-solid fa-gamepad"></i><span>Juegos</span></div>
+          <div class="interest-card glass"><i class="fa-solid fa-music"></i><span>Música</span></div>
+          <div class="interest-card glass"><i class="fa-solid fa-plane"></i><span>Viajar</span></div>
+          <div class="interest-card glass"><i class="fa-solid fa-bicycle"></i><span>Deporte</span></div>
+          <div class="interest-card glass"><i class="fa-solid fa-book"></i><span>Libros</span></div>
+          <div class="interest-card glass"><i class="fa-brands fa-python"></i><span>Python</span></div>
+          <div class="interest-card glass"><i class="fa-solid fa-robot"></i><span>IA</span></div>
+          <div class="interest-card glass"><i class="fa-solid fa-camera"></i><span>Fotografía</span></div>
+          <div class="interest-card glass"><i class="fa-solid fa-film"></i><span>Cine</span></div>
+          <div class="interest-card glass"><i class="fa-solid fa-brain"></i><span>Machine Learning</span></div>
+          <div class="interest-card glass"><i class="fa-solid fa-network-wired"></i><span>Deep Learning</span></div>
+          <div class="interest-card glass"><i class="fa-solid fa-gears"></i><span>Automatización</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ TRAYECTORIA ═══════════════════════════ -->
+  <section id="trayectoria">
+    <div class="section">
+      <h2 class="section-title">MI TRAYECTORIA</h2>
+      <div class="timeline">
+        <div class="timeline-item glass">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">2026 &mdash; Presente</span>
+            <h3>Desarrollador Web Freelance</h3>
+            <p>Diseño y desarrollo de aplicaciones web full stack para clientes. Especialización en UI/UX moderna, bases de datos y despliegue en la nube.</p>
+          </div>
+        </div>
+        <div class="timeline-item glass">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">2022 a 2025</span>
+            <h3>Formación Full Stack &mdash; Autodidacta</h3>
+            <p>Estudio intensivo de HTML, CSS, JavaScript, Bootstrap, Python, IA y bases de datos relacionales. Primeros proyectos personales publicados.</p>
+          </div>
+        </div>
+        <div class="timeline-item glass">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">Anterior</span>
+            <h3>Experiencia Profesional Diversa</h3>
+            <p>Trayectoria en distintas industrias que forjó habilidades de liderazgo, trabajo en equipo y resolución de problemas bajo presión.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════ SKILLS ═══════════════════════════ -->
+  <!-- ═══════════════════════ HABILIDADES ═══════════════════════════ -->
   <section id="skills">
     <div class="section">
       <h2 class="section-title">HABILIDADES</h2>
       <div class="skills-grid">
+
         <!-- Frontend -->
-        <div class="skill-card glass reveal-up">
+        <div class="skill-card glass">
           <div class="skill-card-title"><i class="fa-solid fa-display"></i> &nbsp;Frontend</div>
           <div class="skill-item">
             <div class="skill-label"><span>HTML5 / CSS3</span><span>95%</span></div>
@@ -89,7 +164,7 @@
         </div>
 
         <!-- Backend -->
-        <div class="skill-card glass reveal-up">
+        <div class="skill-card glass">
           <div class="skill-card-title"><i class="fa-solid fa-server"></i> &nbsp;Backend</div>
           <div class="skill-item">
             <div class="skill-label"><span>Python</span><span>90%</span></div>
@@ -114,8 +189,8 @@
         </div>
 
         <!-- IA -->
-        <div class="skill-card glass reveal-up">
-          <div class="skill-card-title"><i class="fa-solid fa-brain"></i> &nbsp;IA & Agentes</div>
+        <div class="skill-card glass">
+          <div class="skill-card-title"><i class="fa-solid fa-brain"></i> &nbsp;IA &amp; Agentes</div>
           <div class="skill-item">
             <div class="skill-label"><span>LangChain / Agentes LLM</span><span>78%</span></div>
             <div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div>
@@ -135,18 +210,18 @@
         </div>
 
         <!-- DevOps -->
-        <div class="skill-card glass reveal-up">
-          <div class="skill-card-title"><i class="fa-solid fa-cloud"></i> &nbsp;DevOps & Cloud</div>
+        <div class="skill-card glass">
+          <div class="skill-card-title"><i class="fa-solid fa-cloud"></i> &nbsp;DevOps &amp; Cloud</div>
           <div class="skill-item">
             <div class="skill-label"><span>Linux / VPS Admin</span><span>82%</span></div>
             <div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div>
           </div>
           <div class="skill-item">
-            <div class="skill-label"><span>Docker & Compose</span><span>75%</span></div>
+            <div class="skill-label"><span>Docker &amp; Compose</span><span>75%</span></div>
             <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
           </div>
           <div class="skill-item">
-            <div class="skill-label"><span>Git & GitHub</span><span>88%</span></div>
+            <div class="skill-label"><span>Git &amp; GitHub</span><span>88%</span></div>
             <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
           </div>
           <div class="skill-tools">
@@ -159,39 +234,25 @@
     </div>
   </section>
 
-  <!-- ═══════════════════════════ TRAYECTORIA ═══════════════════════════ -->
-  <section id="curriculum">
-    <div class="section">
-      <h2 class="section-title">TRAYECTORIA</h2>
-      <div class="timeline">
-        <div class="timeline-item glass">
-          <div class="timeline-dot"></div>
-          <span class="timeline-date">2026 — Presente</span>
-          <h3>Desarrollador Web Freelance</h3>
-          <p>Diseño y desarrollo de aplicaciones web full stack para clientes. Especialización en UI/UX moderna, bases de datos y despliegue en la nube.</p>
-        </div>
-        <div class="timeline-item glass">
-          <div class="timeline-dot"></div>
-          <span class="timeline-date">2022 a 2025</span>
-          <h3>Formación Full Stack — Autodidacta</h3>
-          <p>Estudio intensivo de HTML, CSS, JavaScript, Bootstrap, Python, IA y bases de datos relacionales. Primeros proyectos personales publicados.</p>
-        </div>
-        <div class="timeline-item glass">
-          <div class="timeline-dot"></div>
-          <span class="timeline-date">Anterior</span>
-          <h3>Experiencia Profesional Diversa</h3>
-          <p>Trayectoria en distintas industrias que forjó habilidades de liderazgo, trabajo en equipo y resolución de problemas bajo presión.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
   <footer>
-    <div class="nav-logo" style="font-size:1.4rem;margin-bottom:0.5rem"><span class="grad-text">Dev</span>Marco</div>
-    <p style="margin-bottom:1rem">Desarrollado con <span style="color:#e11d48">❤︎</span> y mucho ☕ en Chile</p>
-    <p>© 2025 Marco Yañez — Todos los derechos reservados</p>
+    <div class="nav-logo"><span class="grad-text">Dev</span>Marco</div>
+    <div class="footer-socials">
+      <a href="https://github.com/Marcoo1987" target="_blank" rel="noopener" class="social-link"><i class="fa-brands fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/marco-yañez-8b1b2b/" target="_blank" rel="noopener" class="social-link"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a href="https://www.instagram.com/marcoo_1987/" target="_blank" rel="noopener" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+    </div>
+    <p style="margin-bottom:0.5rem">Desarrollado con <span style="color:#e11d48">❤︎</span> y mucho ☕ en Chile</p>
+    <p>© 2026 Marco Yañez — Todos los derechos reservados</p>
   </footer>
+
+  <!-- Botón de WhatsApp Flotante -->
+  <a href="https://wa.me/56984117478" target="_blank" rel="noopener" class="wsp-float" id="wsp-float" title="Chat con Marco (WhatsApp)">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- Canvas para la estela de llama dinámica -->
+  <canvas id="flame-canvas"></canvas>
 
 </body>
 </html>

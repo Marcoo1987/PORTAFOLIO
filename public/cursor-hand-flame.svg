@@ -1,0 +1,13 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Hand silhouette flaming -->
+  <path d="M12 24C12 22 14 20 16 20C18 20 20 22 20 24V14C20 12 22 10 24 10C26 10 28 12 28 14V24V16C28 14 30 12 32 12C34 12 36 14 36 16V24V18C36 16 38 14 40 14C42 14 44 16 44 18V28C44 36 40 40 32 40H20C12 40 12 32 12 28V24Z" fill="url(#gradHand)" stroke="#FF4500" stroke-width="2" stroke-linejoin="round"/>
+  <!-- Inner color hand center -->
+  <path d="M14 26C14 24 16 22 18 22H18V16C18 14 20 12 22 12H22V16V18H26V14C26 12 28 10 30 10V18V20H34V14C34 12 36 10 38 10V28C38 34 34 38 28 38H18C14 38 14 32 14 26Z" fill="white" opacity="0.4"/>
+  <defs>
+    <linearGradient id="gradHand" x1="12" y1="10" x2="44" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFD700" />
+      <stop offset="60%" stop-color="#FF4500" />
+      <stop offset="100%" stop-color="#8B0000" />
+    </linearGradient>
+  </defs>
+</svg>

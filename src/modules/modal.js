@@ -7,6 +7,8 @@ export function initModal() {
   modalBody = document.getElementById('modalBody');
   modalCloseBtn = document.getElementById('modalCloseBtn');
 
+  if (!modal || !modalBody || !modalCloseBtn) return;
+
   modalCloseBtn.addEventListener('click', closeModal);
   modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
