@@ -11,7 +11,7 @@ export function renderProjects() {
   container.innerHTML = PROJECTS.map(p => `
     <div class="proyecto" style="opacity: 1 !important;">
       ${p.image 
-        ? `<img src="${p.image}" alt="${p.title}" onerror="this.src='/img/placeholder.png'">` 
+        ? `<img src="${p.image}" alt="${p.title}" onerror="this.src='img/placeholder.png'">` 
         : `<div class="proyecto-placeholder"><i class="${p.icon || 'fa-solid fa-code'}"></i><span>${p.title}</span></div>`
       }
       <div class="proyecto-overlay">

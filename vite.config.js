@@ -12,6 +12,7 @@ export default defineConfig({
         main: resolve(__dirname, 'index.html'),
         sobremi: resolve(__dirname, 'sobre-mi.html'),
         portafolio: resolve(__dirname, 'portafolio.html'),
+        galeria: resolve(__dirname, 'galeria.html'),
         precios: resolve(__dirname, 'precios.html'),
         contacto: resolve(__dirname, 'contacto.html')
       }
