@@ -1,4 +1,4 @@
-// import './style.css';
+import './style.css';
 import { renderProjects } from './modules/renderProjects.js';
 import { renderPricing }  from './modules/renderPricing.js';
 import { initModal }      from './modules/modal.js';
