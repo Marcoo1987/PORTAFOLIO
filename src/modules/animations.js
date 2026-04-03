@@ -389,7 +389,7 @@ export function initTypewriter() {
         typed = true;
         const bioTextElement = document.getElementById('bioText');
         if (bioTextElement) {
-          const fullText = "Hola, soy Marco Yañez. Con un enfoque pragmático y orientado a resultados, me especializo en el desarrollo de aplicaciones web modernas y la creación de agentes inteligentes autónomos (IA) diseñados para optimizar procesos y escalar impacto. Mi camino en el mundo TI es una evolución constante entre el comportamiento humano y las arquitecturas Full Stack, donde combino mi pasión por el diseño UX/UI con lógica sólida en el frontend y backend. Me esfuerzo día a día por dominar las tecnologías que definen el estándar de la industria.";
+          const fullText = "Hola, soy Marco Yañez. Soy un Psicólogo titulado (2013) con una trayectoria de más de 10 años en áreas críticas como Pericia Forense, Neuropsicología y Reclutamiento Minero. Como AI Engineer (Bootcamp Python 428h), mi enfoque es una evolución constante entre el comportamiento humano y las arquitecturas Full Stack. Me especializo en el desarrollo de agentes inteligentes autónomos diseñados para optimizar procesos y escalar impacto, fusionando la precisión analítica del peritaje con lógica sólida en el frontend y backend. Actualmente finalizo mi especialización en Full Stack JavaScript para seguir dominando las tecnologías que definen el estándar de la industria.";
           let i = 0;
           bioTextElement.innerHTML = '';
           

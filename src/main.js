@@ -3,6 +3,7 @@ import { renderProjects } from './modules/renderProjects.js';
 import { renderPricing }  from './modules/renderPricing.js';
 import { initModal }      from './modules/modal.js';
 import { initThreeBackground } from './modules/threeBackground.js';
+import { initTerminal }       from './modules/terminal.js';
 import {
   initSmoothScroll,
   initCursor,
@@ -12,17 +13,29 @@ import {
   initHeroSlider,
   initScrollAnimations,
   initMagneticButtons,
-  initTypewriter,
   initWhatsappAnimation
 } from './modules/animations.js';
+import { initTypewriter } from './modules/typewriter.js';
+import JarvisAgent from './modules/jarvisAgent.js';
 
 function initApp() {
+  /* 0 — Init Intelligence */
+  window.jarvis = new JarvisAgent();
+  
+  // Initialize Typewriter for Bio - Ensure unique call
+  const bioTarget = document.getElementById('typewriter-bio');
+  if (bioTarget) {
+    console.log("Main: Iniciando Typewriter para biografía...");
+    initTypewriter('typewriter-bio', 'bio-full-text', 15);
+  }
+
   /* 1 — Render dynamic content */
   renderProjects();
   renderPricing();
 
-  /* 2 — Init modal system */
+  /* 2 — Init modal & terminal system */
   initModal();
+  initTerminal();
 
   /* 3 — Animations & interactivity */
   initSmoothScroll();
@@ -31,7 +44,6 @@ function initApp() {
   initHeroAnimation();
   initHeroNameEffect();
   initHeroSlider();
-  initTypewriter();
 
   /* Esperamos a que los componentes dinámicos finalicen el layout
      para evitar que ScrollTrigger mida posiciones a 0. */

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Marco Yañez — Desarrollador Full Stack & Agentes de IA. Conoce mi historia, habilidades y trayectoria."/>
-  <title>Marco Yañez | Sobre Mí</title>
+  <meta name="description" content="Marco Yañez — AI Engineer & Psicólogo Perito. +10 años de experiencia en áreas críticas y experto en automatización con IA."/>
+  <title>Marco Yañez | AI Engineer & Psicólogo Perito</title>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,6 +31,10 @@
     <div class="nav-logo">
       <span class="grad-text">Dev</span>Marco
     </div>
+
+    <!-- Ticker de Actividad de Agentes -->
+    <div class="nav-ticker" id="navTicker"></div>
+
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html"    class="nav-link">Inicio</a></li>
       <li><a href="sobre-mi.html" class="nav-link active">Sobre Mí</a></li>
@@ -44,22 +48,51 @@
   <!-- ═══════════════════════ HERO SOBRE MÍ ═══════════════════════ -->
   <section id="sobremi-hero" class="sm-hero-section">
     <div class="sm-main-card">
-      
-      <span class="sm-label-teal">DESARROLLADOR DE APLICACIONES FULLSTACK</span>
-      
-      <h1 class="sm-title-huge">Marco Yañez</h1>
-      
-      <div class="sm-description-text">
-        <p id="bioText" style="display:inline;"></p><span id="bioCursor" style="color:#1CB698;font-weight:700">|</span>
+    <div class="sm-main-card glass-glow">
+      <div class="sm-hero-content">
+        <span class="sm-label-teal" data-aos="fade-up">AI ENGINEER & PSICÓLOGO PERITO</span>
+        <h1 class="sm-title-huge" data-aos="fade-up" data-aos-delay="100">Marco Yañez</h1>
+        <p class="sm-description-text" data-aos="fade-up" data-aos-delay="200" id="typewriter-bio">
+          <!-- Text will be typed here -->
+        </p>
+        <div id="bio-full-text" style="display:none; visibility:hidden; height:0; overflow:hidden;">Marco es un Psicólogo titulado (2013) con una trayectoria de más de 10 años en áreas críticas como Pericia Forense, Neuropsicología y Reclutamiento Minero. Además, es un AI Engineer con un Bootcamp de Python de 428 horas completado y certificado (Acreditta), y especialista en Full Stack JavaScript. Fusiono el análisis del comportamiento humano con la ingeniería de vanguardia e integrando siempre los últimos estándares de la industria para crear agentes inteligentes y experiencias digitales de alto impacto.</div>
+        
+        <div class="sm-actions" data-aos="fade-up" data-aos-delay="300">
+          <a href="https://www.acreditta.com/credential/f7e19f98-e01b-45aa-94c6-8bef26956fc9?utm_source=linkedin_profile&resource_type=badge&resource=f7e19f98-e01b-45aa-94c6-8bef26956fc9" target="_blank" rel="noopener" class="badge-python link-badge" title="Ver Certificación">
+            <i class="fa-brands fa-python"></i>
+            <span>Python for Beginners<br><small>Certified AI Engineer (428h Bootcamp)</small></span>
+          </a>
+          <div class="sm-cta-group">
+            <a href="portafolio.html" class="btn-sm btn-primary"><i class="fa-solid fa-rocket"></i> Ver proyectos</a>
+            <a href="contacto.html" class="btn-sm btn-outline"><i class="fa-solid fa-paper-plane"></i> Contáctame</a>
+          </div>
+        </div>
       </div>
 
-      <div class="sm-actions">
-        <a href="portafolio.html" class="sm-btn sm-btn-primary">
-          <i class="fa-solid fa-rocket"></i> Ver proyectos
-        </a>
-        <a href="contacto.html" class="sm-btn sm-btn-outline">
-          <i class="fa-solid fa-paper-plane"></i> Contáctame
-        </a>
+
+
+      <div class="sm-interests-section centered">
+        <h3 class="sm-interests-title"><i class="fa-solid fa-heart-pulse"></i> MIS INTERESES</h3>
+        <div class="interests-grid">
+          <div class="interest-card glass ic-blue"><i class="fa-solid fa-gamepad"></i><span>Juegos</span></div>
+          <div class="interest-card glass ic-purple"><i class="fa-solid fa-music"></i><span>Música</span></div>
+          <div class="interest-card glass ic-pink"><i class="fa-solid fa-plane"></i><span>Viajar</span></div>
+          <div class="interest-card glass ic-amber"><i class="fa-solid fa-bicycle"></i><span>Deporte</span></div>
+          <div class="interest-card glass ic-blue"><i class="fa-solid fa-book"></i><span>Libros</span></div>
+          <div class="interest-card glass ic-purple"><i class="fa-brands fa-python"></i><span>Python</span></div>
+          <div class="interest-card glass ic-pink"><i class="fa-solid fa-robot"></i><span>IA</span></div>
+          <div class="interest-card glass ic-amber"><i class="fa-solid fa-camera"></i><span>Fotografía</span></div>
+        </div>
+      </div>
+
+      <div class="sm-interests-section tech-stack-row centered">
+        <h3 class="sm-interests-title"><i class="fa-solid fa-microchip"></i> TECNOLOGÍAS & STACK</h3>
+        <div class="interests-grid">
+          <div class="interest-card glass ic-blue"><i class="fa-solid fa-film"></i><span>Cine</span></div>
+          <div class="interest-card glass ic-purple"><i class="fa-solid fa-brain"></i><span>Machine Learning</span></div>
+          <div class="interest-card glass ic-pink"><i class="fa-solid fa-network-wired"></i><span>Deep Learning</span></div>
+          <div class="interest-card glass ic-amber"><i class="fa-solid fa-gears"></i><span>Automatización</span></div>
+        </div>
       </div>
 
       <div class="sm-skills-row">
@@ -73,25 +106,37 @@
         <span class="sm-skill-pill"><i class="fa-solid fa-database"></i> PostgreSQL</span>
       </div>
 
-      <div class="sm-interests-section">
-        <div class="sm-divider"></div>
-        <h3 class="sm-interests-title">MIS INTERESES</h3>
-        <div class="interests-grid">
-          <div class="interest-card glass"><i class="fa-solid fa-gamepad"></i><span>Juegos</span></div>
-          <div class="interest-card glass"><i class="fa-solid fa-music"></i><span>Música</span></div>
-          <div class="interest-card glass"><i class="fa-solid fa-plane"></i><span>Viajar</span></div>
-          <div class="interest-card glass"><i class="fa-solid fa-bicycle"></i><span>Deporte</span></div>
-          <div class="interest-card glass"><i class="fa-solid fa-book"></i><span>Libros</span></div>
-          <div class="interest-card glass"><i class="fa-brands fa-python"></i><span>Python</span></div>
-          <div class="interest-card glass"><i class="fa-solid fa-robot"></i><span>IA</span></div>
-          <div class="interest-card glass"><i class="fa-solid fa-camera"></i><span>Fotografía</span></div>
-          <div class="interest-card glass"><i class="fa-solid fa-film"></i><span>Cine</span></div>
-          <div class="interest-card glass"><i class="fa-solid fa-brain"></i><span>Machine Learning</span></div>
-          <div class="interest-card glass"><i class="fa-solid fa-network-wired"></i><span>Deep Learning</span></div>
-          <div class="interest-card glass"><i class="fa-solid fa-gears"></i><span>Automatización</span></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ EXPERTISE HÍBRIDO ═══════════════════════ -->
+  <section id="hybrid-expertise" class="hybrid-section">
+    <div class="section">
+      <h2 class="section-title">EXPERTISE HÍBRIDO</h2>
+      <p class="text-center" style="color: var(--clr-muted); margin-top: -1rem; margin-bottom: 3rem;">Psicología Analítica + Ingeniería de Software</p>
+      
+      <div class="bento-grid">
+        <div class="bento-item large bento-ux glass-glow" data-aos="fade-right">
+          <div class="bento-icon-bg"><i class="fa-solid fa-brain"></i></div>
+          <h3>Neuropsicología & UX</h3>
+          <p>Aplico principios de comportamiento humano y neurociencia cognitiva para diseñar interfaces que reducen la carga cognitiva y maximizan la retención del usuario.</p>
+        </div>
+        <div class="bento-item wide bento-pericia glass-glow" data-aos="fade-left">
+          <div class="bento-icon-bg"><i class="fa-solid fa-scale-balanced"></i></div>
+          <h3>Pericia Forense</h3>
+          <p>Más de 10 años analizando casos críticos bajo presión, lo que se traduce en un rigor analítico excepcional para el debugging y la seguridad de software.</p>
+        </div>
+        <div class="bento-item tall bento-agents glass-glow" data-aos="fade-up">
+          <div class="bento-icon-bg"><i class="fa-solid fa-robot"></i></div>
+          <h3>Agentes Autónomos</h3>
+          <p>Construcción de sistemas de decisión inteligentes basados en modelos de conducta reales, optimizando flujos de trabajo con LLMs.</p>
+        </div>
+        <div class="bento-item bento-ethics glass-glow" data-aos="fade-up" data-aos-delay="100">
+          <div class="bento-icon-bg"><i class="fa-solid fa-gears"></i></div>
+          <h3>Arquitectura Ética</h3>
+          <p>Desarrollo de IA responsable con foco en el impacto social, alineación humana y transparencia técnica.</p>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -103,25 +148,25 @@
         <div class="timeline-item glass">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
-            <span class="timeline-date">2026 &mdash; Presente</span>
-            <h3>Desarrollador Web Freelance</h3>
-            <p>Diseño y desarrollo de aplicaciones web full stack para clientes. Especialización en UI/UX moderna, bases de datos y despliegue en la nube.</p>
+            <span class="timeline-date">2024 &mdash; Presente</span>
+            <h3>AI Engineer & Full Stack Freelance</h3>
+            <p>Estudiante Bootcamp de JavaScript, Creador de Web Pages y Agentes IA. Especialización en agentes autónomos con IA (LangChain/LLMs) y despliegue de soluciones escalables. Bootcamp Python 428h completado y certificado.</p>
           </div>
         </div>
         <div class="timeline-item glass">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
-            <span class="timeline-date">2022 a 2025</span>
-            <h3>Formación Full Stack &mdash; Autodidacta</h3>
-            <p>Estudio intensivo de HTML, CSS, JavaScript, Bootstrap, Python, IA y bases de datos relacionales. Primeros proyectos personales publicados.</p>
+            <span class="timeline-date">2022 &mdash; 2024</span>
+            <h3>Transición TECH & Formación Full Stack</h3>
+            <p>Estudio intensivo de HTML, CSS, JavaScript, IA y bases de datos relacionales, tras una sólida trayectoria autodidacta. Cursando especialización Full Stack JavaScript (trainee).</p>
           </div>
         </div>
         <div class="timeline-item glass">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
-            <span class="timeline-date">Anterior</span>
-            <h3>Experiencia Profesional Diversa</h3>
-            <p>Trayectoria en distintas industrias que forjó habilidades de liderazgo, trabajo en equipo y resolución de problemas bajo presión.</p>
+            <span class="timeline-date">2013 &mdash; 2023</span>
+            <h3>Psicólogo Perito & Neuropsicólogo</h3>
+            <p>Trayectoria de una década en pericia forense criminal y civil. Cursé diplomado en pericia y cursos de evaluación neuropsicológica. Coordinación de equipos multidisciplinarios y análisis de procesos críticos de comportamiento en minería.</p>
           </div>
         </div>
       </div>
@@ -251,6 +296,23 @@
 
   <!-- Canvas para la estela de llama dinámica -->
   <canvas id="flame-canvas"></canvas>
+
+  <!-- Mini Terminal Global Sidebar (Fixed Position) -->
+  <div class="mini-terminal-widget fixed-sidebar" id="terminalAgent">
+    <div class="terminal-header">
+      <div class="terminal-dots">
+        <div class="terminal-dot red"></div>
+        <div class="terminal-dot yellow"></div>
+        <div class="terminal-dot green"></div>
+      </div>
+      <div class="terminal-title">SYSTEM_LOGS_AUTO</div>
+    </div>
+    <div class="terminal-body" id="terminalBody"></div>
+    <div class="terminal-footer">
+      <span>PORT: 5173</span>
+      <span class="pulse-online">● KERNEL_OK</span>
+    </div>
+  </div>
 
   <script type="module" src="src/main.js"></script>
 </body>

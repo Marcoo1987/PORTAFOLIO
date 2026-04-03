@@ -1,5 +1,17 @@
 const PROJECTS = [
   {
+    id: 'jarvis',
+    title: 'Jarvis v2.0 (Agente Personal)',
+    description: 'Mi asistente personal inteligente de alto rendimiento. Gestiona mi agenda, automatiza procesos de desarrollo y actúa como el cerebro central de mi ecosistema digital. Conectado a herramientas de productividad y despliegue.',
+    tags: ['Python', 'LangChain', 'OpenAI', 'Automation'],
+    status: 'OPTIMIZANDO',
+    version: 'v2.1.0',
+    progress: 98,
+    icon: 'fa-solid fa-microchip',
+    image: 'img/jarvis_mockup.png', // Placeholder image path
+    gallery: ['img/jarvis_mockup.png'],
+  },
+  {
     id: 'lumbrera',
     title: 'Cooperativa Lumbrera',
     description: 'E-commerce corporativo premium para pisquera artesanal chilena. Diseño oscuro elegante con carrito interactivo y panel de socios.',
