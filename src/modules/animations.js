@@ -17,40 +17,45 @@ export function initSmoothScroll() {
 }
 
 /* ─────────────────────────────────────────────────────────────
-   2. Custom Flame Cursor + Particle System
+   2. Custom Teal Cursor + Soft Particle Trail
 ───────────────────────────────────────────────────────────── */
-class FlameParticle {
+class TealParticle {
   constructor(x, y) {
     this.x = x;
     this.y = y;
-    // Tamaño más fino para que no tape la flecha y parezca una estela real
-    this.size = Math.random() * 3 + 2; 
-    this.vx = (Math.random() - 0.5) * 1.5;
-    this.vy = -Math.random() * 4 - 2;
-    this.life = 1;
-    this.decay = Math.random() * 0.025 + 0.02;
-    // Gradiente de fuego: Blanco/Oro -> Naranja -> Rojo -> Humo
-    this.color = { h: 25 + Math.random() * 15, s: 100, l: 65 };
+    // Tamaño pequeño y suave para que parezca humo/llama difuminada
+    this.size = Math.random() * 4 + 1.5;
+    this.vx = (Math.random() - 0.5) * 0.8;
+    this.vy = -Math.random() * 2.5 - 0.5;
+    this.life = 0.9;
+    this.decay = Math.random() * 0.03 + 0.018;
+    // Gradiente celeste: #1CB698 → #60efff → blanco difuminado
+    this.hue = 165 + Math.random() * 25; // rango teal/cyan
+    this.sat = 80 + Math.random() * 20;
+    this.lit = 55 + Math.random() * 25;
   }
 
   update() {
     this.x += this.vx;
     this.y += this.vy;
     this.life -= this.decay;
-    this.size *= 0.96;
-    this.color.l -= 0.5; // Oscurecer
-    if (this.color.h > 0) this.color.h -= 0.5; // De amarillo a rojo
+    this.size *= 0.97;
+    this.lit += 0.4; // aclarar suavemente
   }
 
   draw(ctx) {
     ctx.beginPath();
+    // Difuminado con radialGradient en lugar de círculo sólido
+    const grad = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size);
+    grad.addColorStop(0, `hsla(${this.hue}, ${this.sat}%, ${this.lit}%, ${this.life})`);
+    grad.addColorStop(1, `hsla(${this.hue}, ${this.sat}%, ${this.lit + 20}%, 0)`);
     ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-    ctx.fillStyle = `hsla(${this.color.h}, ${this.color.s}%, ${this.color.l}%, ${this.life})`;
+    ctx.fillStyle = grad;
     ctx.fill();
   }
 }
 
-class FlameSystem {
+class TealSystem {
   constructor() {
     this.canvas = document.getElementById('flame-canvas');
     if (!this.canvas) return;
@@ -66,19 +71,20 @@ class FlameSystem {
   }
 
   add(x, y) {
-    for (let i = 0; i < 3; i++) {
-      this.particles.push(new FlameParticle(x, y));
+    // Solo 2 partículas por frame para que sea sutil
+    for (let i = 0; i < 2; i++) {
+      this.particles.push(new TealParticle(x, y));
     }
   }
 
   update() {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     this.ctx.globalCompositeOperation = 'screen';
-    
+
     for (let i = this.particles.length - 1; i >= 0; i--) {
       const p = this.particles[i];
       p.update();
-      if (p.life <= 0 || p.size <= 1) {
+      if (p.life <= 0 || p.size <= 0.5) {
         this.particles.splice(i, 1);
       } else {
         p.draw(this.ctx);
@@ -88,12 +94,17 @@ class FlameSystem {
 }
 
 export function initCursor() {
+  // Ocultar SVG llama naranja
   const flame = document.getElementById('cursor-flame');
-  if (!flame) return;
+  if (flame) flame.style.display = 'none';
 
-  const flameSystem = new FlameSystem();
-  const pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
-  const mouse = { x: pos.x, y: pos.y };
+  const dot = document.getElementById('cursor-dot');
+  if (!dot) return;
+
+  const tealSystem = new TealSystem();
+  const mouse = { x: -200, y: -200 };
+
+  dot.style.display = 'block';
 
   window.addEventListener('mousemove', e => {
     mouse.x = e.clientX;
@@ -101,33 +112,32 @@ export function initCursor() {
   });
 
   gsap.ticker.add(() => {
-    pos.x += (mouse.x - pos.x) * 0.25;
-    pos.y += (mouse.y - pos.y) * 0.25;
-    gsap.set(flame, { x: pos.x, y: pos.y });
-    
-    if (flameSystem.canvas) {
-      // Ajuste dinámico del offset según el estado del cursor
-      const isHovering = flame.classList.contains('hovering');
-      let ox = isHovering ? 24 : 35; // Centrado horizontal para la mano (en translate -50%)
-      let oy = isHovering ? 45 : 35; // Base de la mano (muñeca) o cola de la flecha
-      
-      flameSystem.add(pos.x + ox, pos.y + oy);
-      flameSystem.update();
+    gsap.set(dot, { x: mouse.x, y: mouse.y });
+
+    if (tealSystem.canvas) {
+      tealSystem.add(mouse.x, mouse.y - 4);
+      tealSystem.update();
     }
   });
 
+  // Dot crece ligeramente en hover
   document.addEventListener('mouseover', e => {
-    if (e.target.closest('a, button, .clickable, .bento-cell, .hero-cta, .social-link, .project-card, label, input')) {
-      flame.classList.add('hovering');
+    if (e.target.closest('a, button, .clickable, .hero-cta, .social-link, .project-card, label, input')) {
+      dot.style.width = '12px';
+      dot.style.height = '12px';
+      dot.style.boxShadow = '0 0 16px rgba(28,182,152,1), 0 0 32px rgba(96,239,255,0.5)';
     }
   });
 
   document.addEventListener('mouseout', e => {
-    if (e.target.closest('a, button, .clickable, .bento-cell, .hero-cta, .social-link, .project-card, label, input')) {
-      flame.classList.remove('hovering');
+    if (e.target.closest('a, button, .clickable, .hero-cta, .social-link, .project-card, label, input')) {
+      dot.style.width = '8px';
+      dot.style.height = '8px';
+      dot.style.boxShadow = '0 0 10px rgba(28,182,152,0.9), 0 0 20px rgba(28,182,152,0.4)';
     }
   });
 }
+
 
 /* ─────────────────────────────────────────────────────────────
    3. Navbar scroll effect

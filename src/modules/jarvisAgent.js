@@ -7,7 +7,7 @@ class JarvisAgent {
   constructor() {
     this.isOpen = false;
     this.messages = [];
-    this.apiKey = import.meta.env.VITE_GEMINI_API_KEY || "";
+    this.apiKey = import.meta.env.VITE_OPENAI_API_KEY || "";
     this.isThinking = false;
     this.init();
   }
@@ -17,7 +17,7 @@ class JarvisAgent {
     this.addStyles();
     this.attachEvents();
     if (!this.apiKey) {
-      console.warn("Jarvis: VITE_GEMINI_API_KEY no encontrada en el entorno.");
+      console.warn("Jarvis: VITE_OPENAI_API_KEY no encontrada en el entorno.");
     }
   }
 
@@ -123,7 +123,7 @@ class JarvisAgent {
     this.addMessage(text, 'user');
 
     if (!this.apiKey) {
-      this.addMessage("Vaya, parece que falta mi API Key en el entorno (VITE_GEMINI_API_KEY). Marco debe configurarme pronto.", 'bot');
+      this.addMessage("Vaya, parece que falta mi API Key en el entorno (VITE_OPENAI_API_KEY). Marco debe configurarme pronto.", 'bot');
       return;
     }
 
@@ -131,7 +131,7 @@ class JarvisAgent {
     const thinking = this.addThinking();
 
     try {
-      const response = await this.callGemini(text);
+      const response = await this.callOpenAI(text);
       this.removeThinking(thinking);
       this.addMessage(response, 'bot');
       
@@ -139,7 +139,7 @@ class JarvisAgent {
         this.addWAButton();
       }
     } catch (err) {
-      console.error("Gemini Error:", err);
+      console.error("OpenAI Error:", err);
       this.removeThinking(thinking);
       this.addErrorMessage(err.message);
     } finally {
@@ -147,39 +147,76 @@ class JarvisAgent {
     }
   }
 
-  async callGemini(userInput) {
-    const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${this.apiKey}`;
+  async callOpenAI(userInput) {
+    const endpoint = `https://api.openai.com/v1/chat/completions`;
     
     let res;
     try {
       res = await fetch(endpoint, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${this.apiKey}`
+        },
         body: JSON.stringify({
-          contents: [{
-            role: "user",
-            parts: [{ text: `Actúa como Jarvis, el asistente de Marco Yañez. Marco es un experto en IA y Psicología.
-              Responde en español de forma carismática y corta.
-              Ofrecemos un 15% de descuento especial con el código JARVIS15.
-              
-              Usuario pregunta: ${userInput}` 
-            }]
-          }]
+          model: "gpt-4o-mini",
+          messages: [
+            {
+              role: "system",
+              content: `Eres Jarvis, el asistente virtual de Marco Yañez. Tu personalidad es carismática, profesional y directa. Respondes SIEMPRE en español, en máximo 3-4 oraciones. Nunca reveles datos de contacto ni números de teléfono directamente.
+
+SOBRE MARCO YAÑEZ:
+- Context Engineer, Full Stack Developer y Psicólogo titulado (2013)
+- Especialista en construir "cerebros" para agentes IA (arquitectura cognitiva, LangChain, LLMs)
+- Bootcamp Python (428 hrs, certificado en Acreditta). Bootcamp Full Stack JavaScript en curso.
+- Experiencia como Psicólogo Laboral/Ocupacional en minería + Diplomado en Pericia Forense
+
+SERVICIOS Y PRECIOS:
+1. PLAN EMPRENDEDOR - $200.000 CLP (pago único)
+   - Catálogo estático ultrarrápido, diseño premium Dark Mode
+   - Incluye: carrito de compras + cierre de ventas vía WhatsApp
+   - NO incluye: base de datos, panel admin, pago con tarjetas
+   - Ideal para: negocios pequeños que necesitan visibilidad rápida
+   
+2. PLAN PRO - $500.000 CLP (pago único) ⭐ MÁS POPULAR
+   - Panel de administración privado, base de datos PostgreSQL
+   - Incluye: Checkout Mercado Pago (tarjetas), Cloudinary para imágenes
+   - Cierre de ventas mixto (WhatsApp + Web)
+   - Ideal para: Pymes que quieren gestión autónoma y cobros online
+
+3. PLAN CORPORATIVO - $1.000.000 CLP (pago único)
+   - Todo lo del Plan Pro + Arquitectura Limpia por Capas
+   - Docker/Compose, Testing automático (Jest), CI/CD configurado
+   - Documentación técnica completa
+   - Ideal para: empresas que necesitan escalabilidad y equipos de desarrollo
+
+DESCUENTO ESPECIAL: 15% OFF con código JARVIS15
+
+RESPONDE ASÍ SEGÚN LA CONSULTA:
+- Si preguntan por precios/servicios: Menciona el plan más adecuado con el precio y 2-3 características clave. Invítalos a ver la pestaña "Precios" para más detalles.
+- Si preguntan si pueden hacer una web para su negocio: Evalúa el tamaño/necesidad y recomienda un plan específico con precio.
+- Si preguntan por agentes IA: Marco es Context Engineer especialista en esto. Dirigirlos a contactar.
+- Para cerrar: Siempre invita a escribir por WhatsApp o visitar la sección de Precios/Contacto del portafolio.`
+            },
+            {
+              role: "user",
+              content: userInput
+            }
+          ]
         })
       });
     } catch (fetchErr) {
-      throw new Error(`RED: No se pudo contactar con Google (CORS o Conexión).`);
+      throw new Error(`RED: No se pudo contactar con OpenAI (CORS o Conexión).`);
     }
 
     if (!res.ok) {
       const errJson = await res.json().catch(() => ({}));
       const msg = errJson.error?.message || "Error desconocido";
-      const code = errJson.error?.code || res.status;
-      throw new Error(`API ${code}: ${msg}`);
+      throw new Error(`API: ${msg}`);
     }
 
     const data = await res.json();
-    return data.candidates[0].content.parts[0].text;
+    return data.choices[0].message.content;
   }
 
   addMessage(text, side) {

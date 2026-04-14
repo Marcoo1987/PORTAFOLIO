@@ -48,23 +48,20 @@ footer p {
 
 
 /* ─── Custom Cursor ─────────────────────────── */
+#cursor-flame {
+  display: none !important; /* Llama naranja desactivada — replaced by teal trail */
+}
 #cursor-dot {
   width: 8px; height: 8px;
-  background: var(--clr-primary);
+  background: #1cb698;
   border-radius: 50%;
   position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999;
   transform: translate(-50%, -50%);
-  transition: width 0.2s, height 0.2s, background 0.2s;
-  box-shadow: 0 0 12px var(--clr-primary-glow);
+  transition: width 0.2s ease, height 0.2s ease;
+  box-shadow: 0 0 10px rgba(28, 182, 152, 0.9), 0 0 20px rgba(28, 182, 152, 0.4);
 }
 #cursor-ring {
-  width: 36px; height: 36px;
-  border: 1.5px solid var(--clr-primary);
-  border-radius: 50%;
-  position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9998;
-  transform: translate(-50%, -50%);
-  transition: transform 0.12s ease, width 0.3s, height 0.3s, border-color 0.3s;
-  opacity: 0.6;
+  display: none !important; /* Anillo exterior eliminado a petición del usuario */
 }
 body:has(a:hover) #cursor-dot,
 body:has(button:hover) #cursor-dot { width: 12px; height: 12px; }
@@ -271,8 +268,18 @@ body::after {
   to { opacity: 1; transform: translateX(0); }
 }
 
-@media (max-width: 1024px) {
-  .nav-ticker { display: none; }
+@media (max-width: 600px) {
+  .nav-ticker { 
+    display: flex;
+    position: absolute;
+    bottom: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 300px;
+    font-size: 0.6rem;
+    padding: 0.2rem 0.5rem;
+  }
 }
 .nav-logo { font-family: 'Syne', sans-serif; font-size: 1.6rem; font-weight: 800; }
 .nav-links { display: flex; gap: 2rem; list-style: none; }
@@ -583,6 +590,15 @@ body::after {
   gap: 1.5rem;
   align-items: center;
   text-align: center;
+  transition: padding 0.3s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@media (max-width: 600px) {
+  .sm-main-card {
+    padding: 2.5rem 1.5rem;
+    width: 95%;
+    border-radius: 25px;
+  }
 }
 
 @media (max-width: 1100px) {
@@ -599,6 +615,15 @@ body::after {
   text-transform: uppercase;
   display: block;
   margin-bottom: 2rem;
+  transition: letter-spacing 0.3s ease;
+}
+
+@media (max-width: 600px) {
+  .sm-label-teal {
+    letter-spacing: 1.5px;
+    font-size: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
 }
 
 .sm-title-huge {
@@ -628,8 +653,8 @@ body::after {
 }
 
 @keyframes shine {
-  0% { background-position: 0% center; }
-  100% { background-position: 200% center; }
+  0% { background-position: -100% center; }
+  100% { background-position: 100% center; }
 }
 
 .sm-description-text {
@@ -710,9 +735,11 @@ body::after {
 }
 
 .interest-card:hover {
-  transform: translateY(-3px) scale(1.05);
-  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-5px) scale(1.05);
+  background: rgba(255, 255, 255, 0.12);
   border-color: var(--clr-primary);
+  box-shadow: 0 0 20px var(--clr-primary-glow);
+  backdrop-filter: blur(35px);
 }
 
 /* Color Variants for Interests */
@@ -1226,8 +1253,16 @@ footer { text-align: center; padding: 3rem; border-top: 1px solid var(--clr-glas
   100% { opacity: 1; }
 }
 
-/* Badge Python & Hero Actions */
-.badge-python {
+/* Badges & Hero Actions */
+.badges-container {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.badge-python, .badge-js {
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -1235,11 +1270,18 @@ footer { text-align: center; padding: 3rem; border-top: 1px solid var(--clr-glas
   padding: 0.8rem 1.5rem;
   border-radius: 15px;
   border: 1px solid rgba(28, 182, 152, 0.2);
-  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
 }
+
+.badge-python:hover, .badge-js:hover {
+  transform: translateY(-3px);
+  background: rgba(28, 182, 152, 0.08);
+}
+
 .badge-python i { font-size: 1.8rem; color: #3b82f6; }
-.badge-python span { font-size: 0.9rem; text-align: left; line-height: 1.2; }
-.badge-python small { opacity: 0.6; font-size: 0.75rem; }
+.badge-js i { font-size: 1.8rem; color: #f7df1e; }
+.badge-python span, .badge-js span { font-size: 0.9rem; text-align: left; line-height: 1.2; color: #f8fafc; }
+.badge-python small, .badge-js small { opacity: 0.6; font-size: 0.75rem; }
 
 .sm-cta-group {
   display: flex;
@@ -1544,15 +1586,18 @@ footer { text-align: center; padding: 3rem; border-top: 1px solid var(--clr-glas
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: left;
   transition: var(--transition);
 }
 
 .bento-item h3 {
   font-family: 'Syne', sans-serif;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   margin-bottom: 0.8rem;
   color: var(--clr-primary);
+  text-align: left;
 }
 
 .bento-item p {
