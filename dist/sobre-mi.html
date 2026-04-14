@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Marco Yañez — Desarrollador Full Stack & Agentes de IA. Conoce mi historia, habilidades y trayectoria."/>
-  <title>Marco Yañez | Sobre Mí</title>
+  <meta name="description" content="Marco Yañez — AI Engineer & Psicólogo Perito. +10 años de experiencia en áreas críticas y experto en automatización con IA."/>
+  <title>Marco Yañez | Context Engineer & Psicólogo & Autodidacta</title>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,8 +16,8 @@
   <style>
     #three-canvas { position: fixed; inset: 0; z-index: -1; pointer-events: none; }
   </style>
-  <script type="module" crossorigin src="/PORTAFOLIO/assets/main-DEO_3qgy.js"></script>
-  <link rel="stylesheet" crossorigin href="/PORTAFOLIO/assets/main-DqAQhWtW.css">
+  <script type="module" crossorigin src="/PORTAFOLIO/assets/main-BFaCa-Pf.js"></script>
+  <link rel="stylesheet" crossorigin href="/PORTAFOLIO/assets/main-D96oX9wB.css">
 </head>
 <body style="padding-top: 80px;">
 
@@ -30,15 +30,19 @@
 
   <!-- ═══════════════════════════ NAVBAR ═══════════════════════════ -->
   <nav id="navbar" class="scrolled">
-    <div class="nav-logo">
+    <a href="index.html" class="nav-logo" style="text-decoration:none;">
       <span class="grad-text">Dev</span>Marco
-    </div>
+    </a>
+
+    <!-- Ticker de Actividad de Agentes -->
+    <div class="nav-ticker" id="navTicker"></div>
+
     <ul class="nav-links" id="navLinks">
-      <li><a href="/"              class="nav-link">Inicio</a></li>
-      <li><a href="/sobre-mi.html" class="nav-link active">Sobre Mí</a></li>
-      <li><a href="/galeria.html"  class="nav-link">Portafolio</a></li>
-      <li><a href="/precios.html"  class="nav-link">Precios</a></li>
-      <li><a href="/contacto.html" class="nav-link">Contacto</a></li>
+      <li><a href="index.html"    class="nav-link">Inicio</a></li>
+      <li><a href="sobre-mi.html" class="nav-link active">Sobre Mí</a></li>
+      <li><a href="portafolio.html" class="nav-link">Portafolio</a></li>
+      <li><a href="precios.html"  class="nav-link">Precios</a></li>
+      <li><a href="contacto.html" class="nav-link">Contacto</a></li>
     </ul>
     <div class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></div>
   </nav>
@@ -46,22 +50,57 @@
   <!-- ═══════════════════════ HERO SOBRE MÍ ═══════════════════════ -->
   <section id="sobremi-hero" class="sm-hero-section">
     <div class="sm-main-card">
-      
-      <span class="sm-label-teal">DESARROLLADOR DE APLICACIONES FULLSTACK</span>
-      
-      <h1 class="sm-title-huge">Marco Yañez</h1>
-      
-      <div class="sm-description-text">
-        <p id="bioText" style="display:inline;"></p><span id="bioCursor" style="color:#1CB698;font-weight:700">|</span>
+    <div class="sm-main-card glass-glow">
+      <div class="sm-hero-content">
+        <span class="sm-label-teal" data-aos="fade-up">CONTEXT ENGINEER & PSICÓLOGO & AUTODIDACTA</span>
+        <h1 class="sm-title-huge" data-aos="fade-up" data-aos-delay="100">Marco Yañez</h1>
+        <p class="sm-description-text" data-aos="fade-up" data-aos-delay="200" id="typewriter-bio">
+          <!-- Text will be typed here -->
+        </p>
+        <div id="bio-full-text" style="display:none; visibility:hidden; height:0; overflow:hidden;">Marco es un Psicólogo titulado (2013) con más de 10 años de trayectoria en áreas críticas como Pericia Forense y Reclutamiento Minero. Como Context Engineer, ha evolucionado el prompt engineering hacia la arquitectura de contextos, construyendo cerebros y entornos para agentes IA de alta eficiencia. Autodidacta por pasión y experto en Full Stack Python/JS con 428 horas de formación intensiva, fusiona el análisis conductual con la automatización de procesos y el diseño de sistemas inteligentes que no solo responden, sino que razonan.</div>
+        
+        <div class="sm-actions" data-aos="fade-up" data-aos-delay="300" style="flex-direction: column; align-items: center;">
+          <div class="badges-container">
+            <a href="https://www.acreditta.com/credential/f7e19f98-e01b-45aa-94c6-8bef26956fc9?utm_source=linkedin_profile&resource_type=badge&resource=f7e19f98-e01b-45aa-94c6-8bef26956fc9" target="_blank" rel="noopener" class="badge-python link-badge" title="Ver Certificación">
+              <i class="fa-brands fa-python"></i>
+              <span>Full Stack Dev Python<br><small>Certified / 428 hrs course</small></span>
+            </a>
+            <div class="badge-js link-badge">
+              <i class="fa-brands fa-js"></i>
+              <span>Javascript Fullstack Dev<br><small>En curso / BootCamp</small></span>
+            </div>
+          </div>
+          <div class="sm-cta-group" style="display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap;">
+            <a href="portafolio.html" class="btn-sm btn-primary sm-btn sm-btn-primary"><i class="fa-solid fa-rocket"></i> Ver proyectos</a>
+            <a href="contacto.html" class="btn-sm btn-outline sm-btn sm-btn-outline"><i class="fa-solid fa-paper-plane"></i> Contáctame</a>
+          </div>
+        </div>
       </div>
 
-      <div class="sm-actions">
-        <a href="/galeria.html" class="sm-btn sm-btn-primary">
-          <i class="fa-solid fa-rocket"></i> Ver proyectos
-        </a>
-        <a href="/contacto.html" class="sm-btn sm-btn-outline">
-          <i class="fa-solid fa-paper-plane"></i> Contáctame
-        </a>
+
+
+      <div class="sm-interests-section centered">
+        <h3 class="sm-interests-title"><i class="fa-solid fa-heart-pulse"></i> MIS INTERESES</h3>
+        <div class="interests-grid">
+          <div class="interest-card glass ic-blue"><i class="fa-solid fa-gamepad"></i><span>Juegos</span></div>
+          <div class="interest-card glass ic-purple"><i class="fa-solid fa-music"></i><span>Música</span></div>
+          <div class="interest-card glass ic-pink"><i class="fa-solid fa-plane"></i><span>Viajar</span></div>
+          <div class="interest-card glass ic-amber"><i class="fa-solid fa-bicycle"></i><span>Deporte</span></div>
+          <div class="interest-card glass ic-blue"><i class="fa-solid fa-book"></i><span>Libros</span></div>
+          <div class="interest-card glass ic-purple"><i class="fa-brands fa-python"></i><span>Python</span></div>
+          <div class="interest-card glass ic-pink"><i class="fa-solid fa-robot"></i><span>IA</span></div>
+          <div class="interest-card glass ic-amber"><i class="fa-solid fa-camera"></i><span>Fotografía</span></div>
+        </div>
+      </div>
+
+      <div class="sm-interests-section tech-stack-row centered">
+        <h3 class="sm-interests-title"><i class="fa-solid fa-microchip"></i> TECNOLOGÍAS & STACK</h3>
+        <div class="interests-grid">
+          <div class="interest-card glass ic-blue"><i class="fa-solid fa-film"></i><span>Cine</span></div>
+          <div class="interest-card glass ic-purple"><i class="fa-solid fa-brain"></i><span>Machine Learning</span></div>
+          <div class="interest-card glass ic-pink"><i class="fa-solid fa-network-wired"></i><span>Deep Learning</span></div>
+          <div class="interest-card glass ic-amber"><i class="fa-solid fa-gears"></i><span>Automatización</span></div>
+        </div>
       </div>
 
       <div class="sm-skills-row">
@@ -75,25 +114,37 @@
         <span class="sm-skill-pill"><i class="fa-solid fa-database"></i> PostgreSQL</span>
       </div>
 
-      <div class="sm-interests-section">
-        <div class="sm-divider"></div>
-        <h3 class="sm-interests-title">MIS INTERESES</h3>
-        <div class="interests-grid">
-          <div class="interest-card glass"><i class="fa-solid fa-gamepad"></i><span>Juegos</span></div>
-          <div class="interest-card glass"><i class="fa-solid fa-music"></i><span>Música</span></div>
-          <div class="interest-card glass"><i class="fa-solid fa-plane"></i><span>Viajar</span></div>
-          <div class="interest-card glass"><i class="fa-solid fa-bicycle"></i><span>Deporte</span></div>
-          <div class="interest-card glass"><i class="fa-solid fa-book"></i><span>Libros</span></div>
-          <div class="interest-card glass"><i class="fa-brands fa-python"></i><span>Python</span></div>
-          <div class="interest-card glass"><i class="fa-solid fa-robot"></i><span>IA</span></div>
-          <div class="interest-card glass"><i class="fa-solid fa-camera"></i><span>Fotografía</span></div>
-          <div class="interest-card glass"><i class="fa-solid fa-film"></i><span>Cine</span></div>
-          <div class="interest-card glass"><i class="fa-solid fa-brain"></i><span>Machine Learning</span></div>
-          <div class="interest-card glass"><i class="fa-solid fa-network-wired"></i><span>Deep Learning</span></div>
-          <div class="interest-card glass"><i class="fa-solid fa-gears"></i><span>Automatización</span></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ EXPERTISE HÍBRIDO ═══════════════════════ -->
+  <section id="hybrid-expertise" class="hybrid-section">
+    <div class="section">
+      <h2 class="section-title">EXPERTISE HÍBRIDO</h2>
+      <p class="text-center" style="color: var(--clr-muted); margin-bottom: 3.5rem;">Psicología Laboral, Ocupacional & Context Engineering</p>
+      
+      <div class="bento-grid">
+        <div class="bento-item large bento-ux glass-glow" data-aos="fade-right">
+          <div class="bento-icon-bg"><i class="fa-solid fa-robot"></i></div>
+          <h3>Ingeniería de Contexto</h3>
+          <p>Evolución del prompt engineering: diseño la arquitectura cognitiva y el entorno de datos para agentes de alta eficiencia. Ya no solo prompts, sino cerebros IA reales.</p>
+        </div>
+        <div class="bento-item wide bento-pericia glass-glow" data-aos="fade-left">
+          <div class="bento-icon-bg"><i class="fa-solid fa-users-gear"></i></div>
+          <h3>Psicología Laboral & Ocupacional</h3>
+          <p>Análisis del comportamiento humano aplicado a la optimización de procesos, dinámicas organizacionales y reclutamiento técnico en entornos de alta exigencia.</p>
+        </div>
+        <div class="bento-item tall bento-agents glass-glow" data-aos="fade-up">
+          <div class="bento-icon-bg"><i class="fa-solid fa-gears"></i></div>
+          <h3>Automatizaciones & Microprocesos</h3>
+          <p>Diseño e implementación de flujos autónomos y micro-optimizaciones digitales que eliminan la fricción operativa y maximizan la precisión técnica.</p>
+        </div>
+        <div class="bento-item bento-ethics glass-glow" data-aos="fade-up" data-aos-delay="100">
+          <div class="bento-icon-bg"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+          <h3>Pericia Forense</h3>
+          <p>Rigor analítico de nivel criminalístico aplicado a la resolución de problemas técnicos complejos, seguridad de datos y debugging de sistemas críticos.</p>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -105,25 +156,25 @@
         <div class="timeline-item glass">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
-            <span class="timeline-date">2026 &mdash; Presente</span>
-            <h3>Desarrollador Web Freelance</h3>
-            <p>Diseño y desarrollo de aplicaciones web full stack para clientes. Especialización en UI/UX moderna, bases de datos y despliegue en la nube.</p>
+            <span class="timeline-date">2024 &mdash; Presente</span>
+            <h3>Context Engineer & Full Stack Freelance Dev</h3>
+            <p>Especialización en crear arquitecturas cognitivas y cerebros para agentes autónomos con IA (LangChain/LLMs). Desarrollo de Landings, Páginas y Aplicaciones Web completas integrando IA avanzada para optimizar y automatizar procesos de negocio.</p>
           </div>
         </div>
         <div class="timeline-item glass">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
-            <span class="timeline-date">2022 a 2025</span>
-            <h3>Formación Full Stack &mdash; Autodidacta</h3>
-            <p>Estudio intensivo de HTML, CSS, JavaScript, Bootstrap, Python, IA y bases de datos relacionales. Primeros proyectos personales publicados.</p>
+            <span class="timeline-date">2022 &mdash; 2024</span>
+            <h3>Formación Autodidacta TECH & Cursos Full Stack</h3>
+            <p>Estudio intensivo y construcción de portfolio propio (HTML, CSS, JavaScript, IA, bases de datos relacionales) basado en una sólida pasión autodidacta. Bootcamp de Python (428 hrs) completado y acreditado. Cursando Bootcamp Full Stack JavaScript avanzado.</p>
           </div>
         </div>
         <div class="timeline-item glass">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
-            <span class="timeline-date">Anterior</span>
-            <h3>Experiencia Profesional Diversa</h3>
-            <p>Trayectoria en distintas industrias que forjó habilidades de liderazgo, trabajo en equipo y resolución de problemas bajo presión.</p>
+            <span class="timeline-date">2013 &mdash; 2023</span>
+            <h3>Psicólogo & Experiencia Interdisciplinaria</h3>
+            <p>Experiencia consolidada como psicólogo laboral y ocupacional en el ámbito minero, abarcando evaluación de competencias, reclutamiento técnico y análisis organizacional. Adicionalmente, Diplomado en Pericia Forense y formación en psicodiagnóstico. Esta trayectoria forgó <strong>habilidades clave para el mundo TECH</strong>: liderazgo, orientación a resultados, trabajo en equipo, resolución de problemas complejos bajo presión, atención al detalle y planificación estratégica.</p>
           </div>
         </div>
       </div>
@@ -236,7 +287,7 @@
 
   <!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
   <footer>
-    <div class="nav-logo"><span class="grad-text">Dev</span>Marco</div>
+    <a href="index.html" class="nav-logo" style="text-decoration:none;"><span class="grad-text">Dev</span>Marco</a>
     <div class="footer-socials">
       <a href="https://github.com/Marcoo1987" target="_blank" rel="noopener" class="social-link"><i class="fa-brands fa-github"></i></a>
       <a href="https://www.linkedin.com/in/marco-yañez-8b1b2b/" target="_blank" rel="noopener" class="social-link"><i class="fa-brands fa-linkedin-in"></i></a>
@@ -254,5 +305,22 @@
   <!-- Canvas para la estela de llama dinámica -->
   <canvas id="flame-canvas"></canvas>
 
+  <!-- Mini Terminal Global Sidebar (Fixed Position) -->
+  <div class="mini-terminal-widget fixed-sidebar" id="terminalAgent">
+    <div class="terminal-header">
+      <div class="terminal-dots">
+        <div class="terminal-dot red"></div>
+        <div class="terminal-dot yellow"></div>
+        <div class="terminal-dot green"></div>
+      </div>
+      <div class="terminal-title">SYSTEM_LOGS_AUTO</div>
+    </div>
+    <div class="terminal-body" id="terminalBody"></div>
+    <div class="terminal-footer">
+      <span>PORT: 5173</span>
+      <span class="pulse-online">● KERNEL_OK</span>
+    </div>
+  </div>
+
 </body>
 </html>

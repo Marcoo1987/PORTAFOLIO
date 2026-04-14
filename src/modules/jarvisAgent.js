@@ -61,7 +61,7 @@ class JarvisAgent {
     const style = document.createElement('style');
     style.id = 'jarvis-styles';
     style.textContent = `
-      #jarvis-chat-container { position: fixed; bottom: 30px; right: 30px; z-index: 9999; font-family: 'DM Sans', sans-serif; }
+      #jarvis-chat-container { position: fixed; bottom: 30px; right: 30px; z-index: 10005; font-family: 'DM Sans', sans-serif; }
       .jarvis-fab { width: 65px; height: 65px; border-radius: 50%; background: linear-gradient(135deg, #1cb698, #3b82f6); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.5rem; box-shadow: 0 10px 30px rgba(28, 182, 152, 0.4); transition: 0.3s; }
       .jarvis-fab:hover { transform: scale(1.1); }
       .jarvis-hidden .jarvis-window { transform: scale(0); opacity: 0; pointer-events: none; }
