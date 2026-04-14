@@ -7,7 +7,7 @@ class JarvisAgent {
   constructor() {
     this.isOpen = false;
     this.messages = [];
-    this.apiKey = import.meta.env.VITE_OPENAI_API_KEY || "";
+    this.apiKey = import.meta.env.VITE_OPENAI_API_KEY || import.meta.env.VITE_OPEN_API_KEY || "";
     this.isThinking = false;
     this.init();
   }
