@@ -1,15 +1,15 @@
 const PROJECTS = [
   {
     id: 'jarvis',
-    title: 'Jarvis v2.0 (Agente Personal)',
-    description: 'Mi asistente personal inteligente de alto rendimiento. Gestiona mi agenda, automatiza procesos de desarrollo y actúa como el cerebro central de mi ecosistema digital. Conectado a herramientas de productividad y despliegue.',
-    tags: ['Python', 'LangChain', 'OpenAI', 'Automation'],
-    status: 'OPTIMIZANDO',
-    version: 'v2.1.0',
-    progress: 98,
-    icon: 'fa-solid fa-microchip',
-    image: 'img/jarvis_mockup.png', // Placeholder image path
-    gallery: ['img/jarvis_mockup.png'],
+    title: 'JARVIS Supremo (Orquestador Autónomo)',
+    description: 'Sistema avanzado de orquestación autónoma 24/7 desplegado en VPS. Integra capacidades de inteligencia artificial para tareas de hacking ético, DevOps, psicología forense y automatización de procesos complejos. Incluye interfaz táctica de visión en tiempo real y gestión de base de datos vectorial.',
+    tags: ['Python', 'LangChain', 'OpenAI', 'Ciberseguridad', 'Neo4j', 'Redis', 'ChromaDB'],
+    status: 'OPERATIVO',
+    version: 'v2.5.0',
+    progress: 100,
+    icon: 'fa-solid fa-shield-halved',
+    image: 'img/jarvis.2.0_funcional.png',
+    gallery: ['img/jarvis.2.0_funcional.png'],
   },
   {
     id: 'lumbrera',
