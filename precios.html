@@ -43,7 +43,16 @@
   <section id="precios" style="background: radial-gradient(ellipse at 50% 50%, rgba(28,182,152,0.05) 0%, transparent 70%);">
     <div class="section">
       <h2 class="section-title">PLANES & PRECIOS</h2>
-      <div class="pricing-grid" id="pricingGrid">
+
+      <!-- Category Tabs -->
+      <div class="pricing-tabs-wrapper">
+        <div class="pricing-tabs" id="pricingTabs">
+          <!-- Rendered by renderPricing.js -->
+        </div>
+        <p class="pricing-cat-desc" id="pricingCategoryDesc"></p>
+      </div>
+
+      <div id="pricingGrid" style="display:flex; flex-direction:column; gap:5rem; margin-top:1rem;">
         <!-- Rendered by renderPricing.js -->
       </div>
     </div>
