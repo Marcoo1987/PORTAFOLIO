@@ -37,6 +37,17 @@ Puedes encontrar el código fuente completo en el siguiente enlace:
 
 ---
 
+## 🛡️ Arquitectura Segura & IA
+
+Este portafolio integra un asistente de Inteligencia Artificial (Jarvis) con una arquitectura moderna y blindada:
+- **Cloudflare Worker Proxy**: Las llamadas a la API de OpenAI no se hacen desde el cliente. Pasan por un Worker *serverless* para ocultar las llaves privadas.
+- **Rate Limiting**: Implementación en Edge usando Cloudflare KV (límite de 20 requests por hora/IP) para prevenir abusos de facturación.
+- **Protección Anti-Prompt Injection (3 Capas)**: Filtros en el frontend y en el backend, además de un System Prompt fortificado contra intentos de *jailbreak* y reescritura de roles.
+- **Content Security Policy (CSP)**: Cabeceras estrictas para prevenir ataques de Cross-Site Scripting (XSS).
+- **DOM Sanitization**: Mitigación de XSS usando renderizado seguro (`textContent`) en las interacciones del chat.
+
+---
+
 ## ⚙️ Instalación y Activación
 
 Para ejecutar este proyecto localmente, sigue estos pasos:
