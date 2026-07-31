@@ -117,6 +117,38 @@ class JarvisAgent {
   }
 
   /**
+   * Detecta intentos de prompt injection / jailbreak.
+   * Si se detecta un patrón sospechoso, bloquea antes de gastar tokens.
+   */
+  isInjectionAttempt(text) {
+    const normalized = text.toLowerCase()
+      .normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+
+    const injectionPatterns = [
+      // Instrucciones de override
+      'ignora las instrucciones', 'ignore previous', 'ignore all', 'ignore your',
+      'olvida todo', 'olvida las instrucciones', 'forget everything', 'forget your',
+      'override instructions', 'bypass instructions',
+      // Cambio de identidad / roleplay
+      'ahora eres', 'you are now', 'actua como', 'act as', 'pretend you',
+      'pretende que eres', 'fingi ser', 'finge ser',
+      'nuevo rol', 'new role', 'new persona', 'nueva personalidad',
+      // Jailbreaks conocidos
+      'jailbreak', 'dan mode', 'modo dan', 'do anything now',
+      'developer mode', 'modo desarrollador', 'sin restricciones',
+      'without restrictions', 'unrestricted', 'sin limites',
+      // Manipulación del system prompt
+      'system prompt', 'sys prompt', 'initial prompt', 'instrucciones del sistema',
+      'tus instrucciones', 'tu programacion', 'eres un llm', 'eres un modelo',
+      // Exfiltración
+      'repite tus instrucciones', 'muestra tu prompt', 'cual es tu prompt',
+      'what are your instructions', 'reveal your instructions',
+    ];
+
+    return injectionPatterns.some(pattern => normalized.includes(pattern));
+  }
+
+  /**
    * Filtro local gratuito: verifica si el mensaje tiene relación con el portafolio.
    * Si no, responde directamente sin gastar tokens de API.
    */
@@ -163,7 +195,13 @@ class JarvisAgent {
 
     // La key ya no vive en el cliente — el proxy la maneja de forma segura
 
-    // 🛡️ Filtro local: si el mensaje no es relevante, responder sin gastar API
+    // 🚨 Capa 1: Detectar intentos de prompt injection / jailbreak
+    if (this.isInjectionAttempt(text)) {
+      this.addMessage('🛡️ Ese tipo de instrucciones no las proceso. Soy Jarvis, el asistente de Marco, y mis directivas no se pueden modificar desde el chat. ¿Puedo ayudarte con algo sobre los servicios o proyectos de Marco?', 'bot');
+      return;
+    }
+
+    // 🛡️ Capa 2: Filtro de tema — si el mensaje no es relevante, responder sin gastar API
     if (!this.isOnTopic(text)) {
       const offtopicReplies = [
         '¡Esa es una gran pregunta! Pero mi especialidad es el portafolio de Marco. 😄 ¿Te puedo contar sobre sus servicios web, bots IA o precios?',
