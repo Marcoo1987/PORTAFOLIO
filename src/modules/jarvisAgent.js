@@ -276,7 +276,11 @@ class JarvisAgent {
     const body = document.getElementById('jarvisBody');
     const msg = document.createElement('div');
     msg.className = `jarvis-msg ${side}`;
-    msg.innerHTML = text;
+    if (side === 'user') {
+      msg.textContent = text; // Previene XSS del usuario
+    } else {
+      msg.innerHTML = text;   // El bot puede usar <strong> o <code>
+    }
     body?.appendChild(msg);
     body.scrollTop = body.scrollHeight;
   }
