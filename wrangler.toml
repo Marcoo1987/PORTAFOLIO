@@ -2,6 +2,7 @@ name = "jarvis-proxy"
 main = "worker/index.js"
 compatibility_date = "2024-01-01"
 compatibility_flags = ["nodejs_compat"]
+account_id = "d54ebb085838b0ffcbe75fdbdf36f22b"
 
 [vars]
 # Variables no sensibles (las sensibles van como Secrets con wrangler secret put)

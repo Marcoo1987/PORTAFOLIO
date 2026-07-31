@@ -41,8 +41,7 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          VITE_OPENAI_API_KEY: ${{ secrets.VITE_OPENAI_API_KEY }}
-          VITE_OPEN_API_KEY: ${{ secrets.VITE_OPEN_API_KEY }}
+          VITE_JARVIS_PROXY_URL: ${{ secrets.VITE_JARVIS_PROXY_URL }}
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
