@@ -114,6 +114,43 @@ class JarvisAgent {
     input?.addEventListener('keypress', (e) => { if (e.key === 'Enter') this.handleSendMessage(); });
   }
 
+  /**
+   * Filtro local gratuito: verifica si el mensaje tiene relación con el portafolio.
+   * Si no, responde directamente sin gastar tokens de API.
+   */
+  isOnTopic(text) {
+    const normalized = text.toLowerCase()
+      .normalize('NFD').replace(/[\u0300-\u036f]/g, ''); // elimina tildes
+
+    const keywords = [
+      // Servicios y precios
+      'precio', 'plan', 'costo', 'cuanto', 'vale', 'cobras', 'cobrar', 'pago', 'tarifa',
+      'emprendedor', 'pro', 'corporativo', 'express', 'enterprise', 'saas', 'mvp',
+      'descuento', 'jarvis15', 'oferta', 'promocion',
+      // Web y desarrollo
+      'web', 'pagina', 'sitio', 'landing', 'ecommerce', 'tienda', 'catalogo',
+      'desarrollar', 'desarrollas', 'hacer', 'construir', 'crear', 'diseñar', 'disenar',
+      'javascript', 'python', 'fullstack', 'frontend', 'backend', 'stack', 'tecnologia',
+      'postgresql', 'docker', 'mercadopago', 'cloudinary', 'github', 'vite', 'react',
+      // Bots e IA
+      'bot', 'agente', 'ia', 'inteligencia', 'artificial', 'chatbot', 'whatsapp',
+      'automatizar', 'automatizacion', 'n8n', 'langchain', 'llm', 'gpt', 'openai',
+      'voz', 'vapi', 'rag', 'memoria', 'contexto', 'multicanal',
+      // Marco y portafolio
+      'marco', 'yañez', 'yanez', 'portafolio', 'portfolio', 'proyecto', 'proyectos',
+      'habilidades', 'experiencia', 'estudios', 'certificado', 'bootcamp', 'psicologo',
+      'mineria', 'laboral', 'forense', 'acreditta',
+      // Contacto
+      'contacto', 'contactar', 'contratar', 'contratas', 'hablar', 'reunion',
+      'presupuesto', 'cotizar', 'cotizacion', 'email', 'correo', 'mensaje',
+      // Preguntas genéricas sobre los servicios
+      'que haces', 'que ofreces', 'servicios', 'puedes hacer', 'podrias hacer',
+      'ayudas', 'ayuda', 'necesito', 'quiero', 'busco'
+    ];
+
+    return keywords.some(kw => normalized.includes(kw));
+  }
+
   async handleSendMessage() {
     const input = document.getElementById('jarvisInput');
     const text = input.value.trim();
@@ -124,6 +161,19 @@ class JarvisAgent {
 
     if (!this.apiKey) {
       this.addMessage("Vaya, parece que falta mi API Key en el entorno (VITE_OPENAI_API_KEY). Marco debe configurarme pronto.", 'bot');
+      return;
+    }
+
+    // 🛡️ Filtro local: si el mensaje no es relevante, responder sin gastar API
+    if (!this.isOnTopic(text)) {
+      const offtopicReplies = [
+        '¡Esa es una gran pregunta! Pero mi especialidad es el portafolio de Marco. 😄 ¿Te puedo contar sobre sus servicios web, bots IA o precios?',
+        'Hmm, eso está fuera de mi alcance. Soy el asistente de Marco Yañez y solo puedo hablar sobre sus proyectos y servicios. ¿Buscas una web, un bot o un SaaS?',
+        'No estoy diseñado para responder eso, ¡pero sí para ayudarte a impulsar tu negocio con Marco! ¿Te cuento sobre los planes disponibles?',
+        'Mi misión es conectarte con Marco y sus servicios. Para eso sí soy experto. 🤖 ¿Qué necesitas: web, automatización o agente IA?'
+      ];
+      const reply = offtopicReplies[Math.floor(Math.random() * offtopicReplies.length)];
+      this.addMessage(reply, 'bot');
       return;
     }
 
