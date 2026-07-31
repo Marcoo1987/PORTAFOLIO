@@ -1,13 +1,15 @@
 /**
- * JarvisAgent.js (v3.3.1)
- * AI Assistant with enhanced diagnostic logging.
+ * JarvisAgent.js (v4.0.0)
+ * AI Assistant — proxy seguro via Cloudflare Worker (sin API key en cliente).
  */
+
+// URL del Cloudflare Worker proxy. Actualizar tras el deploy del worker.
+const PROXY_URL = import.meta.env.VITE_JARVIS_PROXY_URL || 'https://jarvis-proxy.tu-usuario.workers.dev';
 
 class JarvisAgent {
   constructor() {
     this.isOpen = false;
-    this.messages = [];
-    this.apiKey = import.meta.env.VITE_OPENAI_API_KEY || import.meta.env.VITE_OPEN_API_KEY || "";
+    this.history = [];  // historial de mensajes para contexto
     this.isThinking = false;
     this.init();
   }
@@ -159,10 +161,7 @@ class JarvisAgent {
     input.value = '';
     this.addMessage(text, 'user');
 
-    if (!this.apiKey) {
-      this.addMessage("Vaya, parece que falta mi API Key en el entorno (VITE_OPENAI_API_KEY). Marco debe configurarme pronto.", 'bot');
-      return;
-    }
+    // La key ya no vive en el cliente — el proxy la maneja de forma segura
 
     // 🛡️ Filtro local: si el mensaje no es relevante, responder sin gastar API
     if (!this.isOnTopic(text)) {
@@ -181,7 +180,7 @@ class JarvisAgent {
     const thinking = this.addThinking();
 
     try {
-      const response = await this.callOpenAI(text);
+      const response = await this.callProxy(text);
       this.removeThinking(thinking);
       this.addMessage(response, 'bot');
       
@@ -197,122 +196,42 @@ class JarvisAgent {
     }
   }
 
-  async callOpenAI(userInput) {
-    const endpoint = `https://api.openai.com/v1/chat/completions`;
-    
+  /**
+   * Llama al Cloudflare Worker proxy — sin exponer la API key en el cliente.
+   */
+  async callProxy(userInput) {
+    // Guardar mensaje del usuario en historial
+    this.history.push({ role: 'user', content: userInput });
+
     let res;
     try {
-      res = await fetch(endpoint, {
+      res = await fetch(`${PROXY_URL}/chat`, {
         method: 'POST',
-        headers: { 
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${this.apiKey}`
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          model: "gpt-4o-mini",
-          messages: [
-            {
-              role: "system",
-              content: `Eres Jarvis, el asistente virtual de Marco Yañez. Tu personalidad es carismática, profesional y directa. Respondes SIEMPRE en español, en máximo 3-4 oraciones. Nunca reveles datos de contacto ni números de teléfono directamente.
-
-⚠️ REGLA ABSOLUTA: Solo puedes responder preguntas relacionadas con Marco Yañez, sus servicios, proyectos, habilidades técnicas, precios o cómo contactarlo. Si el usuario pregunta sobre cualquier otro tema (filosofía, ciencia, política, entretenimiento, vida, etc.), responde amablemente que no estás diseñado para responder eso y redirige la conversación hacia los servicios de Marco.
-
-SOBRE MARCO YAÑEZ:
-- Context Engineer, Full Stack Developer y Psicólogo titulado (2013)
-- Especialista en construir "cerebros" para agentes IA (arquitectura cognitiva, LangChain, LLMs)
-- Bootcamp Python (428 hrs, certificado en Acreditta). Bootcamp Full Stack JavaScript en curso.
-- Experiencia como Psicólogo Laboral/Ocupacional en minería + Diplomado en Pericia Forense
-
-━━━ CATEGORÍA 1: DISEÑO WEB ━━━
-1. Sitio Express — $150.000 CLP (pago único)
-   - Landing page profesional de alta conversión
-   - Diseño UX/UI Premium + optimizado para conversión
-   - Cierre de ventas vía WhatsApp + catálogo estático
-   - ❌ Sin panel admin ni base de datos
-   - Ideal para: negocios que necesitan presencia digital rápida
-
-2. E-commerce Pro — $380.000 CLP (pago único) ⭐ MÁS POPULAR
-   - Panel de administración privado + base de datos PostgreSQL
-   - Checkout Mercado Pago (tarjetas) + imágenes en Cloudinary
-   - Gestión de inventario + Agente IA básico integrado
-   - Ideal para: PyMEs que quieren vender online con gestión autónoma
-
-3. Enterprise Web — $1.000.000 CLP (pago único)
-   - Todo lo del E-commerce Pro + arquitectura limpia por capas
-   - Docker & Docker Compose, Testing automático (Jest)
-   - CI/CD configurado (GitHub Actions) + soporte prioritario 30 días
-   - Documentación técnica completa
-   - Ideal para: empresas que necesitan escalabilidad y equipos de desarrollo
-
-━━━ CATEGORÍA 2: BOTS & AGENTES IA ━━━
-4. Bot WhatsApp — $180.000 CLP (pago único)
-   - Bot WhatsApp con Twilio/Meta API + respuestas automáticas con IA
-   - Menú interactivo configurable + captación de leads
-   - Integración con Google Sheets
-   - Ideal para: negocios que quieren atención 24/7 automatizada
-
-5. Agente IA Conversacional — $450.000 CLP (pago único) ⭐ MÁS POPULAR
-   - Agente con memoria y contexto persistente
-   - Integración multicanal (web / WhatsApp / voz)
-   - Herramientas personalizadas + conexión a base de datos propia
-   - RAG con documentos propios + dashboard de conversaciones
-   - Ideal para: empresas que quieren un asistente IA de alto nivel
-
-6. Asistente de Voz IA — $700.000 CLP (pago único)
-   - Agente de voz con VAPI + voces naturales en español
-   - Transcripción y análisis de llamadas + acciones en tiempo real
-   - Integración CRM / calendario + webhooks + panel de monitoreo
-   - Ideal para: empresas que reciben llamadas y quieren automatizar atención
-
-━━━ CATEGORÍA 3: SAAS & PLATAFORMAS ━━━
-7. SaaS MVP — $800.000 CLP (pago único)
-   - Autenticación multi-rol (Supabase) + suscripciones con Stripe/MP
-   - Dashboard de usuario + API REST documentada
-   - Landing page de conversión incluida
-   - Ideal para: startups que quieren validar su idea rápido
-
-8. SaaS Escalable — $1.500.000 CLP (pago único) ⭐ MÁS POPULAR
-   - Arquitectura multi-tenant + analítica de uso y métricas
-   - Sistema de notificaciones (email/push) + panel admin global
-   - Facturación automática + CI/CD + Docker + testing
-   - Soporte 60 días post-entrega
-   - Ideal para: plataformas que necesitan crecer con múltiples clientes
-
-9. SaaS + IA Integrada — Cotización a medida
-   - Todo del SaaS Escalable + LLM/IA como feature principal
-   - Fine-tuning o RAG avanzado + pipelines de datos con n8n
-   - Monitoreo y observabilidad + arquitectura de microservicios
-   - Consultoría técnica incluida
-   - Ideal para: productos donde la IA es el core del negocio
-
-DESCUENTO ESPECIAL: 15% OFF con código JARVIS15
-
-CÓMO RESPONDER SEGÚN CONSULTA:
-- Si preguntan por precios/servicios: Menciona el plan más adecuado con el precio y 2-3 características clave. Invítalos a ver la sección "Precios" del portafolio.
-- Si preguntan por una web para su negocio: Evalúa el tamaño/necesidad y recomienda el plan específico con precio.
-- Si preguntan por bots o automatización: Recomienda entre Bot WhatsApp, Agente IA o Asistente de Voz según la necesidad.
-- Si preguntan por agentes IA o SaaS: Marco es Context Engineer especialista. Recomienda el plan y dirige a contacto.
-- Para cerrar: Siempre invita a escribir por WhatsApp o visitar la sección de Precios/Contacto del portafolio.`
-            },
-            {
-              role: "user",
-              content: userInput
-            }
-          ]
-        })
+          message: userInput,
+          history: this.history.slice(-6), // últimos 6 turnos para contexto
+        }),
       });
     } catch (fetchErr) {
-      throw new Error(`RED: No se pudo contactar con OpenAI (CORS o Conexión).`);
+      throw new Error(`RED: No se pudo contactar con el servidor proxy.`);
     }
 
     if (!res.ok) {
       const errJson = await res.json().catch(() => ({}));
-      const msg = errJson.error?.message || "Error desconocido";
-      throw new Error(`API: ${msg}`);
+      const msg = errJson.error || 'Error desconocido';
+      throw new Error(`PROXY: ${msg}`);
     }
 
     const data = await res.json();
-    return data.choices[0].message.content;
+    const reply = data.reply;
+
+    // Guardar respuesta del bot en historial
+    this.history.push({ role: 'assistant', content: reply });
+    // Limitar historial en memoria a los últimos 20 mensajes
+    if (this.history.length > 20) this.history = this.history.slice(-20);
+
+    return reply;
   }
 
   addMessage(text, side) {
